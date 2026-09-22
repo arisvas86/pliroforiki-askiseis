@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Πληροφορική Δ΄ ΕΝΕΕΓΥΛ - 1ο Μάθημα</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f4f7fb;color:#1f2937}
+.wrap{max-width:950px;margin:auto;padding:18px}
+.hero{background:#2457a6;color:white;padding:28px;border-radius:18px;text-align:center}
+.hero h1{margin:0 0 8px;font-size:30px}
+.hero p{margin:0;font-size:19px}
+.card{background:white;border-radius:16px;padding:22px;margin:18px 0;box-shadow:0 2px 10px #0001}
+h2{color:#2457a6}
+.btn{border:0;border-radius:10px;padding:12px 18px;font-size:16px;cursor:pointer;margin:5px;background:#2457a6;color:white}
+.btn.secondary{background:#e7eef9;color:#163b72}
+.option,.match{display:block;border:2px solid #d7dee9;border-radius:10px;padding:12px;margin:9px 0;cursor:pointer;background:#fff}
+.option:hover,.match:hover{background:#f3f7fd}
+.feedback{font-weight:bold;margin-top:12px;min-height:24px}
+.correct{border-color:#3b9b5f!important;background:#edf9f0!important}
+.wrong{border-color:#d9534f!important;background:#fff0ef!important}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px}
+.dropzone{border:3px dashed #b8c4d6;border-radius:12px;padding:16px;min-height:60px;background:#fafcff}
+.small{color:#64748b}
+.score{font-size:22px;font-weight:bold}
+input[type=text]{padding:12px;border:2px solid #ccd5e2;border-radius:9px;font-size:16px;width:100%}
+.result{background:#eef6ff;padding:15px;border-radius:10px;margin-top:12px}
+@media(max-width:600px){.hero h1{font-size:24px}.card{padding:16px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="hero">
+<h1>💻 1ο Μάθημα Πληροφορικής</h1>
+<p>Τι είναι ένας ιστότοπος;</p>
+</div>
+
+<div class="card">
+<h2>🎯 Τι θα μάθω;</h2>
+<ul>
+<li>Τι είναι ένας ιστότοπος.</li>
+<li>Τι είναι μια ιστοσελίδα.</li>
+<li>Τι είναι ένας σύνδεσμος.</li>
+<li>Τι μπορεί να περιέχει μια ιστοσελίδα.</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>🧩 1. Αντιστοίχισε</h2>
+<p class="small">Πάτησε έναν όρο και μετά τη σωστή περιγραφή.</p>
+<div id="terms" class="grid">
+<button class="match" data-term="site">🌐 Ιστότοπος</button>
+<button class="match" data-term="page">📄 Ιστοσελίδα</button>
+<button class="match" data-term="link">🔗 Σύνδεσμος</button>
+<button class="match" data-term="image">🖼️ Εικόνα</button>
+</div>
+<div id="defs" class="grid">
+<button class="match" data-def="image">Μια φωτογραφία ή γραφικό.</button>
+<button class="match" data-def="link">Μας οδηγεί σε άλλο περιεχόμενο.</button>
+<button class="match" data-def="site">Σύνολο σχετικών ιστοσελίδων.</button>
+<button class="match" data-def="page">Μία σελίδα μέσα σε έναν ιστότοπο.</button>
+</div>
+<div id="matchFeedback" class="feedback"></div>
+</div>
+
+<div class="card">
+<h2>✅ 2. Σωστό ή Λάθος</h2>
+<div id="tf">
+<p><b>1.</b> Ένας ιστότοπος μπορεί να έχει πολλές ιστοσελίδες.</p>
+<button class="btn secondary tf" data-q="0" data-a="true">Σωστό</button>
+<button class="btn secondary tf" data-q="0" data-a="false">Λάθος</button>
+
+<p><b>2.</b> Μια ιστοσελίδα δεν μπορεί να έχει εικόνες.</p>
+<button class="btn secondary tf" data-q="1" data-a="true">Σωστό</button>
+<button class="btn secondary tf" data-q="1" data-a="false">Λάθος</button>
+
+<p><b>3.</b> Ένας σύνδεσμος μπορεί να μας οδηγήσει σε άλλη σελίδα.</p>
+<button class="btn secondary tf" data-q="2" data-a="true">Σωστό</button>
+<button class="btn secondary tf" data-q="2" data-a="false">Λάθος</button>
+</div>
+<div id="tfFeedback" class="feedback"></div>
+</div>
+
+<div class="card">
+<h2>🎯 3. Πολλαπλής επιλογής</h2>
+<div id="quiz">
+<p><b>1. Τι είναι ένας ιστότοπος;</b></p>
+<label class="option"><input type="radio" name="q1" value="a"> Ένα παιχνίδι</label>
+<label class="option"><input type="radio" name="q1" value="b"> Ένα σύνολο σχετικών ιστοσελίδων</label>
+<label class="option"><input type="radio" name="q1" value="c"> Μόνο μία εικόνα</label>
+
+<p><b>2. Τι μπορεί να έχει μια ιστοσελίδα;</b></p>
+<label class="option"><input type="radio" name="q2" value="a"> Μόνο κείμενο</label>
+<label class="option"><input type="radio" name="q2" value="b"> Κείμενο, εικόνες, βίντεο και συνδέσμους</label>
+<label class="option"><input type="radio" name="q2" value="c"> Τίποτα</label>
+
+<p><b>3. Τι κάνει ένας σύνδεσμος;</b></p>
+<label class="option"><input type="radio" name="q3" value="a"> Μας μεταφέρει σε άλλο περιεχόμενο</label>
+<label class="option"><input type="radio" name="q3" value="b"> Κλείνει τον υπολογιστή</label>
+<label class="option"><input type="radio" name="q3" value="c"> Σβήνει την ιστοσελίδα</label>
+
+<button class="btn" id="checkQuiz">Έλεγξε τις απαντήσεις</button>
+<button class="btn secondary" id="resetQuiz">Ξανά</button>
+<div id="quizResult" class="result" aria-live="polite"></div>
+</div>
+</div>
+
+<div class="card">
+<h2>🏫 4. Δημιουργώ τον ιστότοπο του σχολείου</h2>
+<p>Γράψε 3 σελίδες που θα ήθελες να έχει ο ιστότοπος του σχολείου.</p>
+<div class="grid">
+<input type="text" placeholder="π.χ. Μαθήματα">
+<input type="text" placeholder="π.χ. Νέα">
+<input type="text" placeholder="π.χ. Επικοινωνία">
+</div>
+<button class="btn" id="showSite">Δείξε τον ιστότοπό μου</button>
+<div id="siteResult"></div>
+</div>
+
+<div class="card">
+<h2>🏆 5. Τελική επανάληψη</h2>
+<p>Ποια πρόταση είναι σωστή;</p>
+<button class="option final" data-correct="false">Ο ιστότοπος είναι μόνο μία φωτογραφία.</button>
+<button class="option final" data-correct="true">Ο ιστότοπος μπορεί να αποτελείται από πολλές σχετικές ιστοσελίδες.</button>
+<button class="option final" data-correct="false">Ο σύνδεσμος δεν κάνει τίποτα.</button>
+<div id="finalFeedback" class="feedback"></div>
+</div>
+
+<div class="card" style="text-align:center">
+<div class="score">⭐ Μπράβο! Ολοκλήρωσες το 1ο μάθημα!</div>
+<p class="small">Θυμήσου: Ιστότοπος → πολλές σχετικές ιστοσελίδες → σύνδεσμοι → περιεχόμενο.</p>
+</div>
+</div>
+
+<script>
+let selectedTerm=null;
+document.querySelectorAll('#terms .match').forEach(b=>b.addEventListener('click',()=>{
+ document.querySelectorAll('#terms .match').forEach(x=>x.classList.remove('correct','wrong'));
+ selectedTerm=b.dataset.term;
+ b.classList.add('correct');
+ document.getElementById('matchFeedback').textContent='Τώρα διάλεξε τη σωστή περιγραφή.';
+}));
+document.querySelectorAll('#defs .match').forEach(b=>b.addEventListener('click',()=>{
+ const f=document.getElementById('matchFeedback');
+ if(!selectedTerm){f.textContent='Πρώτα διάλεξε έναν όρο.';return}
+ if(b.dataset.def===selectedTerm){b.classList.add('correct');f.textContent='🎉 Σωστά!';selectedTerm=null}
+ else {b.classList.add('wrong');f.textContent='❌ Δοκίμασε ξανά.'}
+}));
+
+const tfAnswers=['true','false','true'];
+document.querySelectorAll('.tf').forEach(b=>b.addEventListener('click',()=>{
+ const q=Number(b.dataset.q), ok=b.dataset.a===tfAnswers[q], f=document.getElementById('tfFeedback');
+ f.textContent=ok?'✅ Σωστά!':'❌ Όχι. Ξανασκέψου την απάντηση.';
+ f.style.color=ok?'#237a3b':'#b42318';
+}));
+
+document.getElementById('checkQuiz').addEventListener('click',()=>{
+ const ans={q1:'b',q2:'b',q3:'a'}; let score=0,answered=0;
+ Object.keys(ans).forEach(q=>{const el=document.querySelector('input[name="'+q+'"]:checked');if(el){answered++;if(el.value===ans[q])score++;}});
+ const r=document.getElementById('quizResult');
+ if(answered<3){r.textContent='⚠️ Απάντησε και στις 3 ερωτήσεις.';return}
+ r.innerHTML='<strong>Αποτέλεσμα: '+score+'/3</strong><br>'+(score===3?'🌟 Τέλεια!':score===2?'👍 Πολύ καλά!':'💪 Προσπάθησε ξανά!');
+});
+document.getElementById('resetQuiz').addEventListener('click',()=>{
+ document.querySelectorAll('#quiz input').forEach(x=>x.checked=false);
+ document.getElementById('quizResult').textContent='';
+});
+
+document.getElementById('showSite').addEventListener('click',()=>{
+ const vals=[...document.querySelectorAll('#showSite').length?document.querySelectorAll('.grid input'):[]].slice(-3).map(x=>x.value.trim()).filter(Boolean);
+ document.getElementById('siteResult').innerHTML='<div class="result"><b>🌐 Ο σχολικός σου ιστότοπος:</b><ul>'+vals.map(v=>'<li>'+v.replace(/[<>]/g,'')+'</li>').join('')+'</ul></div>';
+});
+
+document.querySelectorAll('.final').forEach(b=>b.addEventListener('click',()=>{
+ const f=document.getElementById('finalFeedback');
+ const ok=b.dataset.correct==='true';
+ f.textContent=ok?'🏆 Σωστά! Μπράβο!':'❌ Αυτή δεν είναι η σωστή απάντηση.';
+ f.style.color=ok?'#237a3b':'#b42318';
+}));
+</script>
+</body>
+</html>
