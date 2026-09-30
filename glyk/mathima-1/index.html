@@ -61,7 +61,9 @@ p {
     font-weight: bold;
 }
 
-/* Κουτιά βασικών εννοιών */
+/* =========================
+   ΘΕΩΡΙΑ
+========================= */
 
 .concept {
     border-radius: 22px;
@@ -84,7 +86,7 @@ p {
     font-size: 65px;
 }
 
-/* Εικονικό browser */
+/* Browser */
 
 .browser {
     background: white;
@@ -300,6 +302,173 @@ p {
     font-weight: bold;
 }
 
+/* =========================
+   ΔΙΑΔΡΑΣΤΙΚΕΣ ΑΣΚΗΣΕΙΣ
+========================= */
+
+.exercise-title {
+    background: #172033;
+    color: white;
+    border-radius: 20px;
+    padding: 25px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.exercise-title h2 {
+    margin: 0;
+}
+
+.question {
+    background: #f7f9fc;
+    border: 3px solid #d5deea;
+    border-radius: 20px;
+    padding: 25px;
+    margin: 25px 0;
+}
+
+.question-text {
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.option-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.option {
+    border: 3px solid #2864d7;
+    background: white;
+    border-radius: 16px;
+    padding: 20px;
+    font-size: 22px;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    transition: .2s;
+}
+
+.option:hover {
+    background: #eaf1ff;
+    transform: scale(1.02);
+}
+
+.feedback {
+    margin-top: 18px;
+    padding: 18px;
+    border-radius: 15px;
+    font-size: 22px;
+    font-weight: bold;
+    display: none;
+}
+
+.correct {
+    background: #dff5e7;
+    border: 3px solid #24945a;
+    color: #126437;
+}
+
+.wrong {
+    background: #ffe4e4;
+    border: 3px solid #d73535;
+    color: #8a1515;
+}
+
+/* Buttons */
+
+.big-button {
+    background: #2864d7;
+    color: white;
+    border: none;
+    border-radius: 16px;
+    padding: 18px 28px;
+    font-size: 22px;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 8px;
+}
+
+.big-button:hover {
+    opacity: .9;
+}
+
+.score {
+    background: #fff5cf;
+    border: 4px solid #e0ae00;
+    border-radius: 22px;
+    padding: 25px;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.score-number {
+    font-size: 45px;
+    font-weight: bold;
+}
+
+/* Αντιστοίχιση */
+
+.match-item {
+    background: white;
+    border: 3px solid #2864d7;
+    border-radius: 15px;
+    padding: 18px;
+    margin: 12px 0;
+    font-size: 22px;
+}
+
+.match-select {
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid #aebbd0;
+    margin-left: 10px;
+}
+
+/* Σωστό λάθος */
+
+.tf-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.tf-button {
+    flex: 1;
+    border: none;
+    border-radius: 15px;
+    padding: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    background: white;
+    border: 3px solid #2864d7;
+}
+
+.tf-button:hover {
+    background: #eaf1ff;
+}
+
+/* Τελικό */
+
+.final-result {
+    display: none;
+    text-align: center;
+    background: #e6f7ed;
+    border: 5px solid #24945a;
+    border-radius: 25px;
+    padding: 30px;
+    margin-top: 30px;
+}
+
+.final-result h2 {
+    color: #126437;
+}
+
+/* Responsive */
+
 @media(max-width:700px) {
 
     h1 {
@@ -321,6 +490,14 @@ p {
     .pages {
         grid-template-columns: 1fr 1fr;
     }
+
+    .option-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .tf-buttons {
+        flex-direction: column;
+    }
 }
 </style>
 </head>
@@ -329,7 +506,9 @@ p {
 
 <div class="container">
 
-<!-- ΤΙΤΛΟΣ -->
+<!-- =====================================================
+     ΘΕΩΡΙΑ
+===================================================== -->
 
 <div class="card center">
 
@@ -414,7 +593,7 @@ p {
 
 <p>
 Μέσα από το Internet μπορούμε να επισκεπτόμαστε
-<strong>ιστοτόπους</strong> και να βλέπουμε
+<strong>ιστότοπους</strong> και να βλέπουμε
 <strong>ιστοσελίδες</strong>.
 </p>
 
@@ -742,7 +921,1072 @@ p {
 
 </div>
 
+
+<!-- =====================================================
+     ΔΙΑΔΡΑΣΤΙΚΕΣ ΑΣΚΗΣΕΙΣ
+===================================================== -->
+
+<div class="card">
+
+<div class="exercise-title">
+<h2>🎯 ΔΙΑΔΡΑΣΤΙΚΕΣ ΑΣΚΗΣΕΙΣ</h2>
+
+<p>
+Τώρα δοκιμάζω αυτά που έμαθα!
+</p>
 </div>
+
+
+<!-- =====================================================
+     ΑΣΚΗΣΗ 1
+===================================================== -->
+
+<h2>🎯 Άσκηση 1 – Ιστοσελίδα ή Ιστότοπος;</h2>
+
+<p>
+Διάβασε το παράδειγμα και πάτησε τη σωστή απάντηση.
+</p>
+
+
+<!-- Q1 -->
+
+<div class="question">
+
+<div class="question-text">
+1️⃣ Βλέπουμε μία σελίδα με πληροφορίες για το μάθημα της Πληροφορικής.
+</div>
+
+<div class="option-grid">
+
+<button class="option"
+onclick="answer(this,true,'f1')">
+📄 Ιστοσελίδα
+</button>
+
+<button class="option"
+onclick="answer(this,false,'f1')">
+🌐 Ιστότοπος
+</button>
+
+</div>
+
+<div id="f1" class="feedback"></div>
+
+</div>
+
+
+<!-- Q2 -->
+
+<div class="question">
+
+<div class="question-text">
+2️⃣ Ένα σχολείο έχει σελίδες για Μαθήματα, Νέα, Ανακοινώσεις και Επικοινωνία.
+</div>
+
+<div class="option-grid">
+
+<button class="option"
+onclick="answer(this,false,'f2')">
+📄 Ιστοσελίδα
+</button>
+
+<button class="option"
+onclick="answer(this,true,'f2')">
+🌐 Ιστότοπος
+</button>
+
+</div>
+
+<div id="f2" class="feedback"></div>
+
+</div>
+
+
+<!-- Q3 -->
+
+<div class="question">
+
+<div class="question-text">
+3️⃣ Ανοίγουμε μόνο τη σελίδα «Επικοινωνία» ενός σχολείου.
+</div>
+
+<div class="option-grid">
+
+<button class="option"
+onclick="answer(this,true,'f3')">
+📄 Ιστοσελίδα
+</button>
+
+<button class="option"
+onclick="answer(this,false,'f3')">
+🌐 Ιστότοπος
+</button>
+
+</div>
+
+<div id="f3" class="feedback"></div>
+
+</div>
+
+
+<!-- Q4 -->
+
+<div class="question">
+
+<div class="question-text">
+4️⃣ Ένας χώρος στο Internet περιλαμβάνει πολλές σχετικές σελίδες.
+</div>
+
+<div class="option-grid">
+
+<button class="option"
+onclick="answer(this,false,'f4')">
+📄 Ιστοσελίδα
+</button>
+
+<button class="option"
+onclick="answer(this,true,'f4')">
+🌐 Ιστότοπος
+</button>
+
+</div>
+
+<div id="f4" class="feedback"></div>
+
+</div>
+
+
+<!-- Q5 -->
+
+<div class="question">
+
+<div class="question-text">
+5️⃣ Βλέπουμε μία σελίδα με ένα πρόγραμμα μαθημάτων.
+</div>
+
+<div class="option-grid">
+
+<button class="option"
+onclick="answer(this,true,'f5')">
+📄 Ιστοσελίδα
+</button>
+
+<button class="option"
+onclick="answer(this,false,'f5')">
+🌐 Ιστότοπος
+</button>
+
+</div>
+
+<div id="f5" class="feedback"></div>
+
+</div>
+
+
+<!-- Q6 -->
+
+<div class="question">
+
+<div class="question-text">
+6️⃣ Ένας σχολικός ιστότοπος περιλαμβάνει Αρχική, Μαθήματα και Ανακοινώσεις.
+</div>
+
+<div class="option-grid">
+
+<button class="option"
+onclick="answer(this,false,'f6')">
+📄 Ιστοσελίδα
+</button>
+
+<button class="option"
+onclick="answer(this,true,'f6')">
+🌐 Ιστότοπος
+</button>
+
+</div>
+
+<div id="f6" class="feedback"></div>
+
+</div>
+
+
+<!-- Q7 -->
+
+<div class="question">
+
+<div class="question-text">
+7️⃣ Βλέπουμε μόνο μία συγκεκριμένη σελίδα με φωτογραφίες.
+</div>
+
+<div class="option-grid">
+
+<button class="option"
+onclick="answer(this,true,'f7')">
+📄 Ιστοσελίδα
+</button>
+
+<button class="option"
+onclick="answer(this,false,'f7')">
+🌐 Ιστότοπος
+</button>
+
+</div>
+
+<div id="f7" class="feedback"></div>
+
+</div>
+
+
+<!-- Q8 -->
+
+<div class="question">
+
+<div class="question-text">
+8️⃣ Ένα site έχει πολλές σελίδες που συνδέονται μεταξύ τους.
+</div>
+
+<div class="option-grid">
+
+<button class="option"
+onclick="answer(this,false,'f8')">
+📄 Ιστοσελίδα
+</button>
+
+<button class="option"
+onclick="answer(this,true,'f8')">
+🌐 Ιστότοπος
+</button>
+
+</div>
+
+<div id="f8" class="feedback"></div>
+
+</div>
+
+
+<!-- Q9 -->
+
+<div class="question">
+
+<div class="question-text">
+9️⃣ Μία σελίδα παρουσιάζει τα στοιχεία επικοινωνίας ενός σχολείου.
+</div>
+
+<div class="option-grid">
+
+<button class="option"
+onclick="answer(this,true,'f9')">
+📄 Ιστοσελίδα
+</button>
+
+<button class="option"
+onclick="answer(this,false,'f9')">
+🌐 Ιστότοπος
+</button>
+
+</div>
+
+<div id="f9" class="feedback"></div>
+
+</div>
+
+
+<!-- Q10 -->
+
+<div class="question">
+
+<div class="question-text">
+🔟 Ένας ολόκληρος σχολικός χώρος στο Internet περιλαμβάνει πολλές σελίδες.
+</div>
+
+<div class="option-grid">
+
+<button class="option"
+onclick="answer(this,false,'f10')">
+📄 Ιστοσελίδα
+</button>
+
+<button class="option"
+onclick="answer(this,true,'f10')">
+🌐 Ιστότοπος
+</button>
+
+</div>
+
+<div id="f10" class="feedback"></div>
+
+</div>
+
+
+<!-- =====================================================
+     ΑΣΚΗΣΗ 2
+===================================================== -->
+
+<h2>🔗 Άσκηση 2 – Αντιστοίχιση</h2>
+
+<p>
+Διάλεξε τη σωστή λέξη για κάθε περίπτωση.
+</p>
+
+<div class="question">
+
+<div class="match-item">
+📄 Μία συγκεκριμένη σελίδα
+<select class="match-select" id="m1">
+<option value="">-- διάλεξε --</option>
+<option value="site">Ιστότοπος</option>
+<option value="page">Ιστοσελίδα</option>
+</select>
+</div>
+
+<div class="match-item">
+🌐 Πολλές σχετικές σελίδες
+<select class="match-select" id="m2">
+<option value="">-- διάλεξε --</option>
+<option value="site">Ιστότοπος</option>
+<option value="page">Ιστοσελίδα</option>
+</select>
+</div>
+
+<div class="match-item">
+📚 Σελίδα «Μαθήματα»
+<select class="match-select" id="m3">
+<option value="">-- διάλεξε --</option>
+<option value="site">Ιστότοπος</option>
+<option value="page">Ιστοσελίδα</option>
+</select>
+</div>
+
+<div class="match-item">
+🏫 Ολόκληρος ο σχολικός χώρος στο Internet
+<select class="match-select" id="m4">
+<option value="">-- διάλεξε --</option>
+<option value="site">Ιστότοπος</option>
+<option value="page">Ιστοσελίδα</option>
+</select>
+</div>
+
+<div class="match-item">
+📢 Σελίδα «Ανακοινώσεις»
+<select class="match-select" id="m5">
+<option value="">-- διάλεξε --</option>
+<option value="site">Ιστότοπος</option>
+<option value="page">Ιστοσελίδα</option>
+</select>
+</div>
+
+<div class="match-item">
+🌐 Αρχική + Μαθήματα + Νέα + Επικοινωνία
+<select class="match-select" id="m6">
+<option value="">-- διάλεξε --</option>
+<option value="site">Ιστότοπος</option>
+<option value="page">Ιστοσελίδα</option>
+</select>
+</div>
+
+<div class="match-item">
+📞 Μία σελίδα με τηλέφωνο και email
+<select class="match-select" id="m7">
+<option value="">-- διάλεξε --</option>
+<option value="site">Ιστότοπος</option>
+<option value="page">Ιστοσελίδα</option>
+</select>
+</div>
+
+<div class="match-item">
+🏠 Ένας χώρος που περιλαμβάνει πολλές σελίδες
+<select class="match-select" id="m8">
+<option value="">-- διάλεξε --</option>
+<option value="site">Ιστότοπος</option>
+<option value="page">Ιστοσελίδα</option>
+</select>
+</div>
+
+<button class="big-button" onclick="checkMatching()">
+✅ Έλεγχος
+</button>
+
+<div id="matchingResult" class="feedback"></div>
+
+</div>
+
+
+<!-- =====================================================
+     ΑΣΚΗΣΗ 3
+===================================================== -->
+
+<h2>✅❌ Άσκηση 3 – Σωστό ή Λάθος;</h2>
+
+<p>
+Πάτησε <strong>ΣΩΣΤΟ</strong> ή <strong>ΛΑΘΟΣ</strong>.
+</p>
+
+
+<div class="question">
+
+<div class="question-text">
+1️⃣ Η ιστοσελίδα είναι μία συγκεκριμένη σελίδα.
+</div>
+
+<div class="tf-buttons">
+
+<button class="tf-button"
+onclick="tfAnswer(this,true,'t1')">
+✅ ΣΩΣΤΟ
+</button>
+
+<button class="tf-button"
+onclick="tfAnswer(this,false,'t1')">
+❌ ΛΑΘΟΣ
+</button>
+
+</div>
+
+<div id="t1" class="feedback"></div>
+
+</div>
+
+
+<div class="question">
+
+<div class="question-text">
+2️⃣ Ένας ιστότοπος μπορεί να έχει πολλές ιστοσελίδες.
+</div>
+
+<div class="tf-buttons">
+
+<button class="tf-button"
+onclick="tfAnswer(this,true,'t2')">
+✅ ΣΩΣΤΟ
+</button>
+
+<button class="tf-button"
+onclick="tfAnswer(this,false,'t2')">
+❌ ΛΑΘΟΣ
+</button>
+
+</div>
+
+<div id="t2" class="feedback"></div>
+
+</div>
+
+
+<div class="question">
+
+<div class="question-text">
+3️⃣ Ιστότοπος και ιστοσελίδα σημαίνουν ακριβώς το ίδιο.
+</div>
+
+<div class="tf-buttons">
+
+<button class="tf-button"
+onclick="tfAnswer(this,false,'t3')">
+✅ ΣΩΣΤΟ
+</button>
+
+<button class="tf-button"
+onclick="tfAnswer(this,true,'t3')">
+❌ ΛΑΘΟΣ
+</button>
+
+</div>
+
+<div id="t3" class="feedback"></div>
+
+</div>
+
+
+<div class="question">
+
+<div class="question-text">
+4️⃣ Η σελίδα «Επικοινωνία» μπορεί να είναι μία ιστοσελίδα.
+</div>
+
+<div class="tf-buttons">
+
+<button class="tf-button"
+onclick="tfAnswer(this,true,'t4')">
+✅ ΣΩΣΤΟ
+</button>
+
+<button class="tf-button"
+onclick="tfAnswer(this,false,'t4')">
+❌ ΛΑΘΟΣ
+</button>
+
+</div>
+
+<div id="t4" class="feedback"></div>
+
+</div>
+
+
+<div class="question">
+
+<div class="question-text">
+5️⃣ Ένας ιστότοπος μπορεί να περιέχει Αρχική, Νέα και Επικοινωνία.
+</div>
+
+<div class="tf-buttons">
+
+<button class="tf-button"
+onclick="tfAnswer(this,true,'t5')">
+✅ ΣΩΣΤΟ
+</button>
+
+<button class="tf-button"
+onclick="tfAnswer(this,false,'t5')">
+❌ ΛΑΘΟΣ
+</button>
+
+</div>
+
+<div id="t5" class="feedback"></div>
+
+</div>
+
+
+<!-- =====================================================
+     ΤΕΛΙΚΟ QUIZ
+===================================================== -->
+
+<div class="card">
+
+<div class="exercise-title">
+<h2>🏆 Τελικό Quiz</h2>
+
+<p>
+Πόσα θυμάμαι;
+</p>
+</div>
+
+
+<div class="question">
+
+<div class="question-text">
+1️⃣ Τι είναι μία ιστοσελίδα;
+</div>
+
+<div class="option-grid">
+
+<button class="option"
+onclick="quizAnswer(this,false,'q1')">
+🌐 Πολλές σελίδες μαζί
+</button>
+
+<button class="option"
+onclick="quizAnswer(this,true,'q1')">
+📄 Μία συγκεκριμένη σελίδα
+</button>
+
+</div>
+
+<div id="q1" class="feedback"></div>
+
+</div>
+
+
+<div class="question">
+
+<div class="question-text">
+2️⃣ Τι είναι ένας ιστότοπος;
+</div>
+
+<div class="option-grid">
+
+<button class="option"
+onclick="quizAnswer(this,true,'q2')">
+🌐 Πολλές σχετικές ιστοσελίδες
+</button>
+
+<button class="option"
+onclick="quizAnswer(this,false,'q2')">
+📄 Μία μόνο σελίδα
+</button>
+
+</div>
+
+<div id="q2" class="feedback"></div>
+
+</div>
+
+
+<div class="question">
+
+<div class="question-text">
+3️⃣ Η σελίδα «Μαθήματα» ενός σχολείου είναι:
+</div>
+
+<div class="option-grid">
+
+<button class="option"
+onclick="quizAnswer(this,true,'q3')">
+📄 Ιστοσελίδα
+</button>
+
+<button class="option"
+onclick="quizAnswer(this,false,'q3')">
+🌐 Ιστότοπος
+</button>
+
+</div>
+
+<div id="q3" class="feedback"></div>
+
+</div>
+
+
+<div class="question">
+
+<div class="question-text">
+4️⃣ Αρχική + Μαθήματα + Νέα + Επικοινωνία είναι:
+</div>
+
+<div class="option-grid">
+
+<button class="option"
+onclick="quizAnswer(this,false,'q4')">
+📄 Μία ιστοσελίδα
+</button>
+
+<button class="option"
+onclick="quizAnswer(this,true,'q4')">
+🌐 Ένας ιστότοπος
+</button>
+
+</div>
+
+<div id="q4" class="feedback"></div>
+
+</div>
+
+
+<div class="question">
+
+<div class="question-text">
+5️⃣ Ποια πρόταση είναι σωστή;
+</div>
+
+<div class="option-grid">
+
+<button class="option"
+onclick="quizAnswer(this,true,'q5')">
+📄 Η ιστοσελίδα είναι μία συγκεκριμένη σελίδα.
+</button>
+
+<button class="option"
+onclick="quizAnswer(this,false,'q5')">
+🌐 Ο ιστότοπος είναι πάντα μία μόνο σελίδα.
+</button>
+
+</div>
+
+<div id="q5" class="feedback"></div>
+
+</div>
+
+
+<div class="question">
+
+<div class="question-text">
+6️⃣ Ένα σχολείο έχει έναν ιστότοπο. Μέσα σε αυτόν υπάρχει σελίδα «Ανακοινώσεις». Η «Ανακοινώσεις» είναι:
+</div>
+
+<div class="option-grid">
+
+<button class="option"
+onclick="quizAnswer(this,true,'q6')">
+📄 Ιστοσελίδα
+</button>
+
+<button class="option"
+onclick="quizAnswer(this,false,'q6')">
+🌐 Ιστότοπος
+</button>
+
+</div>
+
+<div id="q6" class="feedback"></div>
+
+</div>
+
+
+<div class="question">
+
+<div class="question-text">
+7️⃣ Ποιο από τα παρακάτω περιγράφει καλύτερα έναν ιστότοπο;
+</div>
+
+<div class="option-grid">
+
+<button class="option"
+onclick="quizAnswer(this,false,'q7')">
+📄 Μία σελίδα
+</button>
+
+<button class="option"
+onclick="quizAnswer(this,true,'q7')">
+🌐 Ένα σύνολο σχετικών σελίδων
+</button>
+
+</div>
+
+<div id="q7" class="feedback"></div>
+
+</div>
+
+
+<div class="question">
+
+<div class="question-text">
+8️⃣ Βλέπεις μόνο μία σελίδα με φωτογραφίες. Τι βλέπεις;
+</div>
+
+<div class="option-grid">
+
+<button class="option"
+onclick="quizAnswer(this,true,'q8')">
+📄 Ιστοσελίδα
+</button>
+
+<button class="option"
+onclick="quizAnswer(this,false,'q8')">
+🌐 Ιστότοπος
+</button>
+
+</div>
+
+<div id="q8" class="feedback"></div>
+
+</div>
+
+
+<div class="question">
+
+<div class="question-text">
+9️⃣ Ένας χώρος περιλαμβάνει πολλές συνδεδεμένες σελίδες. Τι είναι;
+</div>
+
+<div class="option-grid">
+
+<button class="option"
+onclick="quizAnswer(this,false,'q9')">
+📄 Ιστοσελίδα
+</button>
+
+<button class="option"
+onclick="quizAnswer(this,true,'q9')">
+🌐 Ιστότοπος
+</button>
+
+</div>
+
+<div id="q9" class="feedback"></div>
+
+</div>
+
+
+<div class="question">
+
+<div class="question-text">
+🔟 Συμπλήρωσε τη σωστή ιδέα:
+<br><br>
+«Μία συγκεκριμένη σελίδα → ________»
+</div>
+
+<div class="option-grid">
+
+<button class="option"
+onclick="quizAnswer(this,true,'q10')">
+📄 Ιστοσελίδα
+</button>
+
+<button class="option"
+onclick="quizAnswer(this,false,'q10')">
+🌐 Ιστότοπος
+</button>
+
+</div>
+
+<div id="q10" class="feedback"></div>
+
+</div>
+
+
+<div class="score">
+
+<h2>🏆 Αποτέλεσμα Quiz</h2>
+
+<div class="score-number">
+<span id="quizScore">0</span> / 10
+</div>
+
+<p>
+Σωστές απαντήσεις
+</p>
+
+<button class="big-button" onclick="resetQuiz()">
+🔄 Ξαναπροσπαθώ
+</button>
+
+</div>
+
+
+<div id="finalResult" class="final-result">
+
+<h2>🎉 Μπράβο!</h2>
+
+<p id="finalMessage"></p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<script>
+
+/* ==========================================
+   ΓΕΝΙΚΕΣ ΑΠΑΝΤΗΣΕΙΣ
+========================================== */
+
+let answered = {};
+
+function answer(button, correct, feedbackId) {
+
+    if (answered[feedbackId]) return;
+
+    answered[feedbackId] = true;
+
+    const feedback = document.getElementById(feedbackId);
+
+    feedback.style.display = "block";
+
+    if (correct) {
+
+        feedback.className = "feedback correct";
+
+        feedback.innerHTML =
+        "✅ Μπράβο! Σωστή απάντηση.";
+
+    } else {
+
+        feedback.className = "feedback wrong";
+
+        feedback.innerHTML =
+        "❌ Όχι αυτή τη φορά. Θυμήσου: μία συγκεκριμένη σελίδα = Ιστοσελίδα.";
+
+    }
+}
+
+
+/* ==========================================
+   ΑΝΤΙΣΤΟΙΧΙΣΗ
+========================================== */
+
+function checkMatching() {
+
+    const answers = {
+
+        m1: "page",
+        m2: "site",
+        m3: "page",
+        m4: "site",
+        m5: "page",
+        m6: "site",
+        m7: "page",
+        m8: "site"
+
+    };
+
+    let score = 0;
+
+    for (let id in answers) {
+
+        if (document.getElementById(id).value === answers[id]) {
+            score++;
+        }
+
+    }
+
+    const result = document.getElementById("matchingResult");
+
+    result.style.display = "block";
+
+    if (score === 8) {
+
+        result.className = "feedback correct";
+
+        result.innerHTML =
+        "🎉 Τέλεια! 8 / 8 σωστά!";
+
+    } else {
+
+        result.className = "feedback wrong";
+
+        result.innerHTML =
+        "Έχεις " + score + " / 8 σωστά. Δοκίμασε ξανά!";
+
+    }
+}
+
+
+/* ==========================================
+   ΣΩΣΤΟ / ΛΑΘΟΣ
+========================================== */
+
+function tfAnswer(button, correct, feedbackId) {
+
+    if (answered[feedbackId]) return;
+
+    answered[feedbackId] = true;
+
+    const feedback = document.getElementById(feedbackId);
+
+    feedback.style.display = "block";
+
+    if (correct) {
+
+        feedback.className = "feedback correct";
+
+        feedback.innerHTML =
+        "✅ Σωστά!";
+
+    } else {
+
+        feedback.className = "feedback wrong";
+
+        feedback.innerHTML =
+        "❌ Λάθος. Ξανασκέψου τη διαφορά Ιστοσελίδας και Ιστότοπου.";
+
+    }
+}
+
+
+/* ==========================================
+   ΤΕΛΙΚΟ QUIZ
+========================================== */
+
+let quizScore = 0;
+let quizAnswered = {};
+
+function quizAnswer(button, correct, feedbackId) {
+
+    if (quizAnswered[feedbackId]) return;
+
+    quizAnswered[feedbackId] = true;
+
+    const feedback = document.getElementById(feedbackId);
+
+    feedback.style.display = "block";
+
+    if (correct) {
+
+        quizScore++;
+
+        feedback.className = "feedback correct";
+
+        feedback.innerHTML =
+        "✅ Σωστά!";
+
+    } else {
+
+        feedback.className = "feedback wrong";
+
+        feedback.innerHTML =
+        "❌ Λάθος. Διάβασε ξανά τη βασική ιδέα.";
+
+    }
+
+    document.getElementById("quizScore").innerText = quizScore;
+
+    if (Object.keys(quizAnswered).length === 10) {
+
+        const result =
+        document.getElementById("finalResult");
+
+        const message =
+        document.getElementById("finalMessage");
+
+        result.style.display = "block";
+
+        if (quizScore === 10) {
+
+            message.innerHTML =
+            "🏆 <strong>10 / 10!</strong><br><br>" +
+            "Έχεις καταλάβει πολύ καλά τη διαφορά " +
+            "Ιστοσελίδας και Ιστότοπου!";
+
+        } else if (quizScore >= 7) {
+
+            message.innerHTML =
+            "👏 Πολύ καλά!<br><br>" +
+            "Έχεις καταλάβει τις βασικές έννοιες.";
+
+        } else if (quizScore >= 5) {
+
+            message.innerHTML =
+            "👍 Καλή προσπάθεια!<br><br>" +
+            "Κοίτα ξανά το «🧠 Θυμάμαι» και προσπάθησε ξανά.";
+
+        } else {
+
+            message.innerHTML =
+            "💪 Δεν πειράζει!<br><br>" +
+            "Ξαναδιάβασε τη θεωρία και δοκίμασε ξανά.";
+
+        }
+
+    }
+
+}
+
+
+/* ==========================================
+   RESET QUIZ
+========================================== */
+
+function resetQuiz() {
+
+    quizScore = 0;
+    quizAnswered = {};
+
+    document.getElementById("quizScore").innerText = "0";
+
+    document.getElementById("finalResult").style.display = "none";
+
+    const feedbacks =
+    document.querySelectorAll(".feedback");
+
+    feedbacks.forEach(function(feedback) {
+
+        feedback.style.display = "none";
+
+    });
+
+    const selects =
+    document.querySelectorAll(".match-select");
+
+    selects.forEach(function(select) {
+
+        select.value = "";
+
+    });
+
+    answered = {};
+
+    window.scrollTo({
+        top: document.body.scrollHeight,
+        behavior: "smooth"
+    });
+
+}
+
+</script>
 
 </body>
 </html>
