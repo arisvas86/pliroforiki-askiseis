@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Β΄ Λυκείου – Επιστήμη των Υπολογιστών</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #eef4f8;
+    color: #1f2937;
+}
+
+header {
+    background: linear-gradient(135deg, #174ea6, #4285f4);
+    color: white;
+    padding: 25px 15px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0 0 8px;
+    font-size: 30px;
+}
+
+header p {
+    margin: 5px;
+    font-size: 18px;
+}
+
+.container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px;
+}
+
+.card {
+    background: white;
+    border-radius: 16px;
+    padding: 22px;
+    margin: 20px 0;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.10);
+}
+
+.card h2 {
+    color: #174ea6;
+    margin-top: 0;
+}
+
+.info {
+    background: #e8f0fe;
+    border-left: 6px solid #4285f4;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.example {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px,1fr));
+    gap: 12px;
+    margin-top: 15px;
+}
+
+.example div {
+    background: #f8f9fa;
+    border: 2px solid #d9e2ec;
+    border-radius: 12px;
+    padding: 18px;
+    text-align: center;
+    font-size: 18px;
+}
+
+button {
+    background: #174ea6;
+    color: white;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 9px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 5px;
+}
+
+button:hover {
+    background: #0d47a1;
+}
+
+.option {
+    display: block;
+    width: 100%;
+    text-align: left;
+    background: #f1f5f9;
+    color: #1f2937;
+    border: 2px solid #d5dde5;
+    margin: 8px 0;
+}
+
+.option:hover {
+    background: #e2e8f0;
+}
+
+.correct {
+    background: #d9ead3 !important;
+    border-color: #6aa84f !important;
+}
+
+.wrong {
+    background: #f4cccc !important;
+    border-color: #cc0000 !important;
+}
+
+.feedback {
+    font-weight: bold;
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+.score {
+    background: #fff2cc;
+    border: 2px solid #f1c232;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 16px;
+    margin: 7px 0;
+}
+
+select {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 8px;
+}
+
+.big {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.emoji {
+    font-size: 38px;
+}
+
+footer {
+    text-align: center;
+    padding: 25px;
+    color: #64748b;
+}
+
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 24px;
+    }
+
+    .card {
+        padding: 16px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>💻 Β΄ Λυκείου – ΕΝ.Ε.Ε.ΓΥ.-Λ.</h1>
+    <p>Εισαγωγή στις Αρχές της Επιστήμης των Η/Υ</p>
+    <p><strong>Μάθημα 1: Επιστήμη των Υπολογιστών</strong></p>
+</header>
+
+<div class="container">
+
+<!-- ΕΝΟΤΗΤΑ 1 -->
+<div class="card">
+
+<h2>🎯 Τι θα μάθουμε σήμερα;</h2>
+
+<div class="info">
+    <p>Σήμερα θα μάθουμε:</p>
+
+    <ul>
+        <li>τι είναι η Πληροφορική,</li>
+        <li>πού συναντάμε την Πληροφορική στην καθημερινή ζωή,</li>
+        <li>ότι η Πληροφορική δεν είναι μόνο ο προγραμματισμός,</li>
+        <li>τη διαφορά ανάμεσα στη θεωρητική και την εφαρμοσμένη Πληροφορική.</li>
+    </ul>
+</div>
+
+</div>
+
+
+<!-- ΕΝΟΤΗΤΑ 2 -->
+<div class="card">
+
+<h2>💡 Πού υπάρχει Πληροφορική;</h2>
+
+<p class="big">
+Κοίτα γύρω σου!
+</p>
+
+<div class="example">
+
+<div>📱<br>Κινητό</div>
+<div>🏧<br>ATM</div>
+<div>🚗<br>Αυτοκίνητο</div>
+<div>🎮<br>Παιχνίδι</div>
+<div>🏥<br>Νοσοκομείο</div>
+<div>🏫<br>Σχολείο</div>
+<div>⌚<br>Smartwatch</div>
+<div>🤖<br>Ρομπότ</div>
+
+</div>
+
+<p>
+Σε όλες αυτές τις περιπτώσεις χρησιμοποιούνται υπολογιστές,
+προγράμματα, δεδομένα ή αλγόριθμοι.
+</p>
+
+</div>
+
+
+<!-- ΔΡΑΣΤΗΡΙΟΤΗΤΑ 1 -->
+<div class="card">
+
+<h2>🎮 Δραστηριότητα 1 – Υπάρχει Πληροφορική;</h2>
+
+<p>
+Για κάθε περίπτωση πάτησε <strong>ΝΑΙ</strong> ή <strong>ΟΧΙ</strong>.
+</p>
+
+<div id="activity1">
+
+<p><strong>1. Κινητό τηλέφωνο</strong></p>
+<button onclick="answer(this,true)">ΝΑΙ</button>
+<button onclick="answer(this,false)">ΟΧΙ</button>
+
+<p><strong>2. Αυτόματος πωλητής εισιτηρίων</strong></p>
+<button onclick="answer(this,true)">ΝΑΙ</button>
+<button onclick="answer(this,false)">ΟΧΙ</button>
+
+<p><strong>3. Ένα απλό μολύβι</strong></p>
+<button onclick="answer(this,false)">ΝΑΙ</button>
+<button onclick="answer(this,true)">ΟΧΙ</button>
+
+<p><strong>4. Ένα έξυπνο φανάρι κυκλοφορίας</strong></p>
+<button onclick="answer(this,true)">ΝΑΙ</button>
+<button onclick="answer(this,false)">ΟΧΙ</button>
+
+<p><strong>5. Ένα ηλεκτρονικό παιχνίδι</strong></p>
+<button onclick="answer(this,true)">ΝΑΙ</button>
+<button onclick="answer(this,false)">ΟΧΙ</button>
+
+<p><strong>6. Ένα απλό βιβλίο</strong></p>
+<button onclick="answer(this,false)">ΝΑΙ</button>
+<button onclick="answer(this,true)">ΟΧΙ</button>
+
+</div>
+
+<p id="feedback1" class="feedback"></p>
+
+</div>
+
+
+<!-- ΕΝΟΤΗΤΑ 3 -->
+<div class="card">
+
+<h2>🧠 Τι μελετά η Επιστήμη των Υπολογιστών;</h2>
+
+<div class="info">
+
+<p>
+Η Επιστήμη των Υπολογιστών ασχολείται με:
+</p>
+
+<ul>
+<li>📊 πληροφορίες και δεδομένα,</li>
+<li>🔢 αλγορίθμους και διαδικασίες,</li>
+<li>💻 υπολογιστές και υπολογιστικά συστήματα.</li>
+</ul>
+
+</div>
+
+<p class="big">
+👉 Πληροφορία + Αλγόριθμος + Υπολογιστής
+</p>
+
+</div>
+
+
+<!-- ΔΡΑΣΤΗΡΙΟΤΗΤΑ 2 -->
+<div class="card">
+
+<h2>🧩 Δραστηριότητα 2 – Τι είναι τι;</h2>
+
+<p>
+Ταίριαξε την έννοια με τη σωστή περιγραφή.
+</p>
+
+<p><strong>1. Πληροφορία</strong></p>
+
+<select id="q1">
+<option value="">-- επίλεξε --</option>
+<option value="wrong">Βήματα για να γίνει κάτι</option>
+<option value="correct">Δεδομένα ή γνώση που έχουμε</option>
+<option value="wrong">Μια συσκευή</option>
+</select>
+
+<p><strong>2. Αλγόριθμος</strong></p>
+
+<select id="q2">
+<option value="">-- επίλεξε --</option>
+<option value="correct">Βήματα για να γίνει κάτι</option>
+<option value="wrong">Δεδομένα ή γνώση</option>
+<option value="wrong">Μια συσκευή</option>
+</select>
+
+<p><strong>3. Υπολογιστής</strong></p>
+
+<select id="q3">
+<option value="">-- επίλεξε --</option>
+<option value="wrong">Βήματα για να γίνει κάτι</option>
+<option value="wrong">Μόνο πληροφορίες</option>
+<option value="correct">Σύστημα που εκτελεί εργασίες</option>
+</select>
+
+<br>
+
+<button onclick="checkActivity2()">Έλεγχος</button>
+
+<p id="feedback2" class="feedback"></p>
+
+</div>
+
+
+<!-- ΕΝΟΤΗΤΑ 4 -->
+<div class="card">
+
+<h2>💻 Η Πληροφορική δεν είναι μόνο προγραμματισμός!</h2>
+
+<p>
+Όταν ακούμε «Πληροφορική», μπορεί να σκεφτούμε τον προγραμματισμό.
+Όμως η Πληροφορική είναι πολύ μεγαλύτερη.
+</p>
+
+<div class="example">
+
+<div>💻<br>Υλικό</div>
+<div>📀<br>Λογισμικό</div>
+<div>🌐<br>Δίκτυα</div>
+<div>📊<br>Δεδομένα</div>
+<div>🤖<br>Τεχνητή Νοημοσύνη</div>
+<div>🔢<br>Αλγόριθμοι</div>
+
+</div>
+
+</div>
+
+
+<!-- ΔΡΑΣΤΗΡΙΟΤΗΤΑ 3 -->
+<div class="card">
+
+<h2>🔎 Δραστηριότητα 3 – Είναι μόνο προγραμματισμός;</h2>
+
+<p>
+Πάτησε τη σωστή απάντηση.
+</p>
+
+<p class="big">
+Η Πληροφορική ασχολείται μόνο με τον προγραμματισμό.
+</p>
+
+<button class="option" onclick="showAnswer(this,false)">
+❌ Σωστό
+</button>
+
+<button class="option" onclick="showAnswer(this,true)">
+✅ Λάθος
+</button>
+
+<p id="feedback3" class="feedback"></p>
+
+</div>
+
+
+<!-- ΕΝΟΤΗΤΑ 5 -->
+<div class="card">
+
+<h2>📚 Θεωρητική και Εφαρμοσμένη Πληροφορική</h2>
+
+<div class="example">
+
+<div>
+🧠<br>
+<strong>Θεωρητική</strong>
+<br><br>
+Αλγόριθμοι<br>
+Υπολογισμοί<br>
+Θεωρία<br>
+Μέθοδοι
+</div>
+
+<div>
+🛠️<br>
+<strong>Εφαρμοσμένη</strong>
+<br><br>
+Λειτουργικά συστήματα<br>
+Δίκτυα<br>
+Τεχνητή Νοημοσύνη<br>
+Πραγματικές εφαρμογές
+</div>
+
+</div>
+
+</div>
+
+
+<!-- ΔΡΑΣΤΗΡΙΟΤΗΤΑ 4 -->
+<div class="card">
+
+<h2>🎯 Δραστηριότητα 4 – Θεωρητική ή Εφαρμοσμένη;</h2>
+
+<p>
+Διάλεξε τη σωστή κατηγορία.
+</p>
+
+<p><strong>Αλγόριθμοι</strong></p>
+
+<select id="q4">
+<option value="">-- επίλεξε --</option>
+<option value="correct">Θεωρητική</option>
+<option value="wrong">Εφαρμοσμένη</option>
+</select>
+
+<p><strong>Δίκτυα υπολογιστών</strong></p>
+
+<select id="q5">
+<option value="">-- επίλεξε --</option>
+<option value="wrong">Θεωρητική</option>
+<option value="correct">Εφαρμοσμένη</option>
+</select>
+
+<p><strong>Τεχνητή Νοημοσύνη</strong></p>
+
+<select id="q6">
+<option value="">-- επίλεξε --</option>
+<option value="wrong">Θεωρητική</option>
+<option value="correct">Εφαρμοσμένη</option>
+</select>
+
+<p><strong>Θεωρία υπολογισμού</strong></p>
+
+<select id="q7">
+<option value="">-- επίλεξε --</option>
+<option value="correct">Θεωρητική</option>
+<option value="wrong">Εφαρμοσμένη</option>
+</select>
+
+<button onclick="checkActivity4()">Έλεγχος</button>
+
+<p id="feedback4" class="feedback"></p>
+
+</div>
+
+
+<!-- ΔΡΑΣΤΗΡΙΟΤΗΤΑ 5 -->
+<div class="card">
+
+<h2>🌍 Δραστηριότητα 5 – Πού βλέπω Πληροφορική;</h2>
+
+<p>
+Γράψε ένα παράδειγμα από την καθημερινή ζωή όπου χρησιμοποιείται
+η Πληροφορική.
+</p>
+
+<input type="text" id="exampleInput"
+placeholder="π.χ. κινητό, ATM, αυτοκίνητο...">
+
+<button onclick="checkExample()">Έλεγχος</button>
+
+<p id="feedback5" class="feedback"></p>
+
+</div>
+
+
+<!-- ΜΙΚΡΟ QUIZ -->
+<div class="card">
+
+<h2>🏆 Τελικό Quiz</h2>
+
+<p><strong>1. Τι είναι ένας αλγόριθμος;</strong></p>
+
+<button class="option" onclick="quiz(this,false)">
+Μια συσκευή
+</button>
+
+<button class="option" onclick="quiz(this,true)">
+Μια σειρά βημάτων για την επίλυση ενός προβλήματος
+</button>
+
+<button class="option" onclick="quiz(this,false)">
+Μόνο ένας υπολογιστής
+</button>
+
+
+<p><strong>2. Πού υπάρχει Πληροφορική;</strong></p>
+
+<button class="option" onclick="quiz(this,true)">
+Σε πολλές καθημερινές εφαρμογές
+</button>
+
+<button class="option" onclick="quiz(this,false)">
+Μόνο στο σχολείο
+</button>
+
+<button class="option" onclick="quiz(this,false)">
+Μόνο στα παιχνίδια
+</button>
+
+
+<p><strong>3. Η Πληροφορική είναι μόνο προγραμματισμός;</strong></p>
+
+<button class="option" onclick="quiz(this,false)">
+Ναι
+</button>
+
+<button class="option" onclick="quiz(this,true)">
+Όχι
+</button>
+
+<div id="quizScore" class="score">
+Σωστές απαντήσεις: 0
+</div>
+
+</div>
+
+
+<!-- EXIT TICKET -->
+<div class="card">
+
+<h2>🎫 Exit Ticket</h2>
+
+<p>
+Πριν φύγουμε, ολοκλήρωσε την πρόταση:
+</p>
+
+<p class="big">
+«Σήμερα έμαθα ότι η Πληροφορική...»
+</p>
+
+<input type="text" id="exitInput"
+placeholder="Γράψε μια σύντομη απάντηση...">
+
+<button onclick="finishLesson()">Ολοκλήρωση</button>
+
+<p id="finishMessage" class="feedback"></p>
+
+</div>
+
+
+<!-- ΑΝΑΚΕΦΑΛΑΙΩΣΗ -->
+<div class="card">
+
+<h2>🔁 Θυμάμαι!</h2>
+
+<div class="info">
+
+<p>Σήμερα κρατάμε 3 πράγματα:</p>
+
+<ol>
+<li>Η Πληροφορική υπάρχει παντού γύρω μας.</li>
+<li>Μελετά πληροφορίες, αλγορίθμους και υπολογιστικά συστήματα.</li>
+<li>Δεν είναι μόνο προγραμματισμός.</li>
+</ol>
+
+</div>
+
+<p class="big">
+👏 Μπράβο! Ολοκλήρωσες το πρώτο μάθημα!
+</p>
+
+</div>
+
+</div>
+
+<footer>
+Β΄ Λυκείου ΕΝ.Ε.Ε.ΓΥ.-Λ. – Πληροφορική
+</footer>
+
+
+<script>
+
+let quizScore = 0;
+
+
+/* Δραστηριότητα 1 */
+
+function answer(button, correct) {
+
+    if (correct) {
+
+        button.classList.add("correct");
+
+        document.getElementById("feedback1").innerHTML =
+        "✅ Σωστά! Η Πληροφορική χρησιμοποιείται σε αυτή την περίπτωση.";
+
+    } else {
+
+        button.classList.add("wrong");
+
+        document.getElementById("feedback1").innerHTML =
+        "❌ Όχι. Δοκίμασε ξανά.";
+
+    }
+}
+
+
+/* Δραστηριότητα 2 */
+
+function checkActivity2() {
+
+    let score = 0;
+
+    if (document.getElementById("q1").value === "correct") score++;
+    if (document.getElementById("q2").value === "correct") score++;
+    if (document.getElementById("q3").value === "correct") score++;
+
+    document.getElementById("feedback2").innerHTML =
+    "Αποτελέσματα: " + score + " / 3 σωστά.";
+
+    if (score === 3) {
+        document.getElementById("feedback2").innerHTML +=
+        " 🎉 Άριστα!";
+    }
+}
+
+
+/* Δραστηριότητα 3 */
+
+function showAnswer(button, correct) {
+
+    if (correct) {
+
+        button.classList.add("correct");
+
+        document.getElementById("feedback3").innerHTML =
+        "✅ Σωστά! Η Πληροφορική περιλαμβάνει πολλά περισσότερα από τον προγραμματισμό.";
+
+    } else {
+
+        button.classList.add("wrong");
+
+        document.getElementById("feedback3").innerHTML =
+        "❌ Δοκίμασε ξανά.";
+
+    }
+}
+
+
+/* Δραστηριότητα 4 */
+
+function checkActivity4() {
+
+    let score = 0;
+
+    if (document.getElementById("q4").value === "correct") score++;
+    if (document.getElementById("q5").value === "correct") score++;
+    if (document.getElementById("q6").value === "correct") score++;
+    if (document.getElementById("q7").value === "correct") score++;
+
+    document.getElementById("feedback4").innerHTML =
+    "Αποτελέσματα: " + score + " / 4 σωστά.";
+
+    if (score === 4) {
+        document.getElementById("feedback4").innerHTML +=
+        " 🎉 Πολύ καλά!";
+    }
+}
+
+
+/* Δραστηριότητα 5 */
+
+function checkExample() {
+
+    let text = document.getElementById("exampleInput").value.trim();
+
+    if (text.length > 2) {
+
+        document.getElementById("feedback5").innerHTML =
+        "✅ Πολύ καλά! Το παράδειγμά σου είναι μια εφαρμογή της Πληροφορικής.";
+
+    } else {
+
+        document.getElementById("feedback5").innerHTML =
+        "✏️ Γράψε ένα παράδειγμα, όπως «κινητό» ή «ATM».";
+
+    }
+}
+
+
+/* Τελικό Quiz */
+
+function quiz(button, correct) {
+
+    if (button.dataset.answered === "yes") {
+        return;
+    }
+
+    button.dataset.answered = "yes";
+
+    if (correct) {
+
+        button.classList.add("correct");
+
+        quizScore++;
+
+        document.getElementById("quizScore").innerHTML =
+        "Σωστές απαντήσεις: " + quizScore;
+
+    } else {
+
+        button.classList.add("wrong");
+
+        document.getElementById("quizScore").innerHTML =
+        "Σωστές απαντήσεις: " + quizScore;
+
+    }
+}
+
+
+/* Exit Ticket */
+
+function finishLesson() {
+
+    let text = document.getElementById("exitInput").value.trim();
+
+    if (text.length > 2) {
+
+        document.getElementById("finishMessage").innerHTML =
+        "🎉 Μπράβο! Η απάντησή σου καταγράφηκε στη συσκευή.";
+
+    } else {
+
+        document.getElementById("finishMessage").innerHTML =
+        "✏️ Γράψε πρώτα μια μικρή απάντηση.";
+
+    }
+}
+
+</script>
+
+</body>
+</html>
