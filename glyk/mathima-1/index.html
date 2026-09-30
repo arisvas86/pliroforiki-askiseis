@@ -1,0 +1,1490 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Μάθημα 1 - Ιστότοπος και Ιστοσελίδα</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #eef3f9;
+    color: #172033;
+}
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 18px;
+}
+
+.screen {
+    display: none;
+}
+
+.screen.active {
+    display: block;
+}
+
+.card {
+    background: white;
+    border-radius: 24px;
+    padding: 28px;
+    margin: 15px 0;
+    box-shadow: 0 5px 18px rgba(0,0,0,.08);
+}
+
+h1 {
+    font-size: 44px;
+    text-align: center;
+    margin: 10px 0 15px;
+}
+
+h2 {
+    font-size: 34px;
+    margin: 10px 0 20px;
+}
+
+h3 {
+    font-size: 25px;
+}
+
+p {
+    font-size: 23px;
+    line-height: 1.5;
+}
+
+.center {
+    text-align: center;
+}
+
+.big {
+    font-size: 29px;
+    font-weight: bold;
+}
+
+button {
+    border: 0;
+    border-radius: 18px;
+    padding: 17px 28px;
+    margin: 7px;
+    font-size: 23px;
+    font-weight: bold;
+    cursor: pointer;
+    background: #2864d7;
+    color: white;
+    min-width: 190px;
+}
+
+button:hover {
+    transform: scale(1.03);
+}
+
+button:disabled {
+    cursor: default;
+    opacity: .9;
+}
+
+.secondary {
+    background: #596579;
+}
+
+.green {
+    background: #24945a;
+}
+
+.red {
+    background: #c94343;
+}
+
+.yellow {
+    background: #e2a51b;
+    color: #172033;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.progress {
+    height: 14px;
+    background: #d8e0eb;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0;
+    background: #2864d7;
+    transition: width .3s;
+}
+
+/* Browser εικόνες */
+
+.browser {
+    background: white;
+    border: 3px solid #c7d1df;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,.1);
+    margin: 15px 0;
+}
+
+.browser-top {
+    background: #dfe5ee;
+    padding: 10px 14px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #8793a4;
+}
+
+.address {
+    margin-left: 10px;
+    background: white;
+    border-radius: 12px;
+    padding: 7px 15px;
+    flex: 1;
+    color: #687487;
+    font-size: 15px;
+}
+
+.website-header {
+    background: #2864d7;
+    color: white;
+    padding: 20px;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.website-menu {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    padding: 12px;
+    background: #edf2f8;
+}
+
+.website-menu span {
+    background: white;
+    border-radius: 9px;
+    padding: 8px 13px;
+    font-weight: bold;
+}
+
+.website-body {
+    padding: 25px;
+    min-height: 180px;
+}
+
+.fake-title {
+    font-size: 29px;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+.fake-boxes {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.fake-box {
+    flex: 1;
+    min-width: 130px;
+    background: #eef3f9;
+    border: 2px solid #ccd6e4;
+    border-radius: 12px;
+    padding: 18px;
+    text-align: center;
+    font-size: 19px;
+    font-weight: bold;
+}
+
+/* Διαφορά ιστοσελίδας / ιστοτόπου */
+
+.compare {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    align-items: stretch;
+}
+
+.compare-box {
+    border-radius: 22px;
+    padding: 20px;
+    text-align: center;
+}
+
+.page-box {
+    background: #eaf1ff;
+    border: 5px solid #2864d7;
+}
+
+.site-box {
+    background: #e6f7ed;
+    border: 5px solid #24945a;
+}
+
+.label {
+    display: inline-block;
+    padding: 10px 18px;
+    border-radius: 14px;
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.page-label {
+    background: #2864d7;
+    color: white;
+}
+
+.site-label {
+    background: #24945a;
+    color: white;
+}
+
+/* Εικονική σελίδα */
+
+.single-page {
+    background: white;
+    border: 4px solid #2864d7;
+    border-radius: 18px;
+    overflow: hidden;
+    max-width: 430px;
+    margin: auto;
+}
+
+.single-page-header {
+    background: #2864d7;
+    color: white;
+    padding: 18px;
+    font-size: 23px;
+    font-weight: bold;
+}
+
+.single-page-content {
+    padding: 25px;
+}
+
+.single-page-line {
+    height: 15px;
+    background: #dbe3ee;
+    border-radius: 8px;
+    margin: 12px 0;
+}
+
+.single-page-card {
+    background: #edf2f8;
+    border-radius: 12px;
+    padding: 20px;
+    margin-top: 15px;
+}
+
+/* Ιστότοπος */
+
+.site-diagram {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.main-site {
+    background: #24945a;
+    color: white;
+    padding: 20px 35px;
+    border-radius: 18px;
+    font-size: 27px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.arrow {
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.pages {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    width: 100%;
+}
+
+.page {
+    background: #e6f7ed;
+    border: 3px solid #24945a;
+    border-radius: 15px;
+    padding: 20px 10px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Quiz */
+
+.question {
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    margin: 25px 0;
+}
+
+.answer-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+
+.answer {
+    min-height: 110px;
+}
+
+.feedback {
+    min-height: 55px;
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+    padding: 15px;
+}
+
+.match-area {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+.match-item {
+    background: #eef3f9;
+    border: 3px solid #bdc9d9;
+    border-radius: 17px;
+    padding: 20px;
+    margin: 10px 0;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.match-item.selected {
+    background: #dce8ff;
+    border-color: #2864d7;
+}
+
+.match-item.correct {
+    background: #dcf4e7;
+    border-color: #24945a;
+}
+
+.match-item.wrong {
+    background: #ffe1e1;
+    border-color: #c94343;
+}
+
+.memory {
+    border-radius: 20px;
+    padding: 25px;
+    margin: 18px 0;
+    text-align: center;
+}
+
+.memory-blue {
+    background: #eaf1ff;
+    border: 4px solid #2864d7;
+}
+
+.memory-green {
+    background: #e6f7ed;
+    border: 4px solid #24945a;
+}
+
+.score {
+    font-size: 48px;
+    text-align: center;
+    font-weight: bold;
+    padding: 25px;
+}
+
+@media(max-width:700px) {
+
+    h1 {
+        font-size: 34px;
+    }
+
+    h2 {
+        font-size: 28px;
+    }
+
+    p {
+        font-size: 20px;
+    }
+
+    .compare,
+    .answer-grid,
+    .match-area {
+        grid-template-columns: 1fr;
+    }
+
+    .pages {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    button {
+        width: 100%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="progress">
+    <div class="progress-bar" id="progressBar"></div>
+</div>
+
+
+<!-- ===================== -->
+<!-- 1. ΑΡΧΗ -->
+<!-- ===================== -->
+
+<section class="screen active" id="screen1">
+
+<div class="card center">
+
+<h1>Μάθημα 1</h1>
+
+<h2>🌐 Ιστότοπος και Ιστοσελίδα</h2>
+
+<div class="browser">
+
+    <div class="browser-top">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="address">
+            www.scholeio.gr
+        </div>
+    </div>
+
+    <div class="website-header">
+        🏫 ΤΟ ΣΧΟΛΕΙΟ ΜΑΣ
+    </div>
+
+    <div class="website-menu">
+        <span>Αρχική</span>
+        <span>Μαθήματα</span>
+        <span>Νέα</span>
+        <span>Επικοινωνία</span>
+    </div>
+
+    <div class="website-body">
+
+        <div class="fake-title">
+            Καλώς ήρθατε!
+        </div>
+
+        <p>
+            Αυτό είναι ένα παράδειγμα ιστοσελίδας.
+        </p>
+
+        <div class="fake-boxes">
+            <div class="fake-box">📚 Μαθήματα</div>
+            <div class="fake-box">📢 Νέα</div>
+            <div class="fake-box">📞 Επικοινωνία</div>
+        </div>
+
+    </div>
+
+</div>
+
+<p class="big">
+Σήμερα θα μάθουμε τη διαφορά ανάμεσα σε
+<br>
+<strong>ΙΣΤΟΣΕΛΙΔΑ</strong> και <strong>ΙΣΤΟΤΟΠΟ</strong>.
+</p>
+
+<button onclick="nextScreen()">🚀 Ξεκινάμε!</button>
+
+</div>
+
+</section>
+
+
+<!-- ===================== -->
+<!-- 2. ΤΙ ΕΙΝΑΙ ΜΙΑ ΙΣΤΟΣΕΛΙΔΑ -->
+<!-- ===================== -->
+
+<section class="screen" id="screen2">
+
+<div class="card">
+
+<h2>📄 Τι είναι μία ιστοσελίδα;</h2>
+
+<p class="center">
+Μία ιστοσελίδα είναι <strong>μία συγκεκριμένη σελίδα</strong>
+που βλέπουμε στο Internet.
+</p>
+
+<div class="single-page">
+
+    <div class="single-page-header">
+        📄 ΜΙΑ ΙΣΤΟΣΕΛΙΔΑ
+    </div>
+
+    <div class="single-page-content">
+
+        <h3>Μαθήματα Πληροφορικής</h3>
+
+        <div class="single-page-line"></div>
+        <div class="single-page-line"></div>
+        <div class="single-page-line"></div>
+
+        <div class="single-page-card">
+            💻 Υλικό μαθήματος
+        </div>
+
+    </div>
+
+</div>
+
+<p class="center big">
+👉 Εδώ βλέπουμε <strong>μία σελίδα</strong>.
+</p>
+
+</div>
+
+<div class="nav">
+
+<button class="secondary" onclick="prevScreen()">
+⬅️ Πίσω
+</button>
+
+<button onclick="nextScreen()">
+➡️ Συνέχεια
+</button>
+
+</div>
+
+</section>
+
+
+<!-- ===================== -->
+<!-- 3. ΤΙ ΕΙΝΑΙ ΙΣΤΟΤΟΠΟΣ -->
+<!-- ===================== -->
+
+<section class="screen" id="screen3">
+
+<div class="card">
+
+<h2>🌐 Τι είναι ένας ιστότοπος;</h2>
+
+<p class="center">
+Ένας ιστότοπος μπορεί να έχει
+<strong>πολλές σχετικές ιστοσελίδες</strong>.
+</p>
+
+<div class="site-diagram">
+
+<div class="main-site">
+🌐 ΣΧΟΛΙΚΟΣ ΙΣΤΟΤΟΠΟΣ
+</div>
+
+<div class="arrow">
+⬇️
+</div>
+
+<div class="pages">
+
+<div class="page">
+🏠<br>
+Αρχική
+</div>
+
+<div class="page">
+📚<br>
+Μαθήματα
+</div>
+
+<div class="page">
+📢<br>
+Ανακοινώσεις
+</div>
+
+<div class="page">
+📞<br>
+Επικοινωνία
+</div>
+
+</div>
+
+</div>
+
+<p class="center big">
+Όλες αυτές οι σελίδες μπορούν να ανήκουν
+στον ίδιο <strong>ιστότοπο</strong>.
+</p>
+
+</div>
+
+<div class="nav">
+
+<button class="secondary" onclick="prevScreen()">
+⬅️ Πίσω
+</button>
+
+<button onclick="nextScreen()">
+➡️ Συνέχεια
+</button>
+
+</div>
+
+</section>
+
+
+<!-- ===================== -->
+<!-- 4. ΣΥΓΚΡΙΣΗ -->
+<!-- ===================== -->
+
+<section class="screen" id="screen4">
+
+<div class="card">
+
+<h2>💡 Ποια είναι η διαφορά;</h2>
+
+<div class="compare">
+
+<div class="compare-box page-box">
+
+<div class="label page-label">
+📄 ΙΣΤΟΣΕΛΙΔΑ
+</div>
+
+<div class="single-page">
+
+<div class="single-page-header">
+Μία σελίδα
+</div>
+
+<div class="single-page-content">
+
+<div class="single-page-line"></div>
+<div class="single-page-line"></div>
+<div class="single-page-line"></div>
+
+</div>
+
+</div>
+
+<p class="big">
+<strong>Μία</strong> συγκεκριμένη σελίδα
+</p>
+
+</div>
+
+
+<div class="compare-box site-box">
+
+<div class="label site-label">
+🌐 ΙΣΤΟΤΟΠΟΣ
+</div>
+
+<div class="site-diagram">
+
+<div class="main-site">
+🌐
+</div>
+
+<div class="pages">
+
+<div class="page">🏠</div>
+<div class="page">📚</div>
+<div class="page">📢</div>
+<div class="page">📞</div>
+
+</div>
+
+</div>
+
+<p class="big">
+<strong>Πολλές</strong> σχετικές σελίδες
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="nav">
+
+<button class="secondary" onclick="prevScreen()">
+⬅️ Πίσω
+</button>
+
+<button onclick="nextScreen()">
+➡️ Πάμε να παίξουμε!
+</button>
+
+</div>
+
+</section>
+
+
+<!-- ===================== -->
+<!-- 5. ΕΠΙΛΟΓΗ -->
+<!-- ===================== -->
+
+<section class="screen" id="screen5">
+
+<div class="card">
+
+<h2>🎯 Βρες τη σωστή απάντηση</h2>
+
+<div class="question">
+
+📄 Βλέπουμε μία συγκεκριμένη σελίδα.
+
+<br><br>
+
+Τι είναι;
+
+</div>
+
+<div class="answer-grid">
+
+<button class="answer"
+onclick="answer(this,true,'feedback5')">
+
+📄 ΙΣΤΟΣΕΛΙΔΑ
+
+</button>
+
+<button class="answer"
+onclick="answer(this,false,'feedback5')">
+
+🌐 ΙΣΤΟΤΟΠΟΣ
+
+</button>
+
+</div>
+
+<div id="feedback5" class="feedback"></div>
+
+</div>
+
+<div class="nav">
+
+<button class="secondary" onclick="prevScreen()">
+⬅️ Πίσω
+</button>
+
+<button onclick="nextScreen()">
+➡️ Συνέχεια
+</button>
+
+</div>
+
+</section>
+
+
+<!-- ===================== -->
+<!-- 6. ΑΝΤΙΣΤΟΙΧΙΣΗ -->
+<!-- ===================== -->
+
+<section class="screen" id="screen6">
+
+<div class="card">
+
+<h2>🧩 Αντιστοίχισε!</h2>
+
+<p class="center">
+Πάτησε μία έννοια και μετά τη σωστή εξήγηση.
+</p>
+
+<div class="match-area">
+
+<div>
+
+<h3>Έννοιες</h3>
+
+<div class="match-item"
+data-pair="page"
+onclick="selectMatch(this,'page')">
+
+📄 Ιστοσελίδα
+
+</div>
+
+<div class="match-item"
+data-pair="site"
+onclick="selectMatch(this,'site')">
+
+🌐 Ιστότοπος
+
+</div>
+
+</div>
+
+
+<div>
+
+<h3>Εξηγήσεις</h3>
+
+<div class="match-item"
+data-pair="site"
+onclick="selectMatch(this,'site')">
+
+Πολλές σχετικές σελίδες
+
+</div>
+
+<div class="match-item"
+data-pair="page"
+onclick="selectMatch(this,'page')">
+
+Μία συγκεκριμένη σελίδα
+
+</div>
+
+</div>
+
+</div>
+
+<div id="matchResult" class="feedback"></div>
+
+</div>
+
+<div class="nav">
+
+<button class="secondary" onclick="prevScreen()">
+⬅️ Πίσω
+</button>
+
+<button onclick="nextScreen()">
+➡️ Συνέχεια
+</button>
+
+</div>
+
+</section>
+
+
+<!-- ===================== -->
+<!-- 7. ΣΩΣΤΟ ΛΑΘΟΣ -->
+<!-- ===================== -->
+
+<section class="screen" id="screen7">
+
+<div class="card">
+
+<h2>✅ ή ❌ Σωστό ή Λάθος;</h2>
+
+<div class="question">
+
+Ένας ιστότοπος μπορεί να έχει
+πολλές ιστοσελίδες.
+
+</div>
+
+<div class="answer-grid">
+
+<button class="answer green"
+onclick="answer(this,true,'feedback7')">
+
+✅ ΣΩΣΤΟ
+
+</button>
+
+<button class="answer red"
+onclick="answer(this,false,'feedback7')">
+
+❌ ΛΑΘΟΣ
+
+</button>
+
+</div>
+
+<div id="feedback7" class="feedback"></div>
+
+</div>
+
+<div class="nav">
+
+<button class="secondary" onclick="prevScreen()">
+⬅️ Πίσω
+</button>
+
+<button onclick="nextScreen()">
+➡️ Συνέχεια
+</button>
+
+</div>
+
+</section>
+
+
+<!-- ===================== -->
+<!-- 8. ΣΧΟΛΙΚΟΣ ΙΣΤΟΤΟΠΟΣ -->
+<!-- ===================== -->
+
+<section class="screen" id="screen8">
+
+<div class="card">
+
+<h2>🏫 Ας φτιάξουμε έναν σχολικό ιστότοπο!</h2>
+
+<p>
+Ένας σχολικός ιστότοπος μπορεί να έχει πολλές διαφορετικές σελίδες.
+</p>
+
+<div class="browser">
+
+<div class="browser-top">
+
+<div class="dot"></div>
+<div class="dot"></div>
+<div class="dot"></div>
+
+<div class="address">
+www.scholeio.gr
+</div>
+
+</div>
+
+<div class="website-header">
+🏫 ΤΟ ΣΧΟΛΕΙΟ ΜΑΣ
+</div>
+
+<div class="website-menu">
+
+<span>🏠 Αρχική</span>
+<span>📚 Μαθήματα</span>
+<span>📢 Ανακοινώσεις</span>
+<span>📞 Επικοινωνία</span>
+
+</div>
+
+<div class="website-body">
+
+<div class="fake-title">
+Καλώς ήρθατε στον ιστότοπό μας!
+</div>
+
+<div class="fake-boxes">
+
+<div class="fake-box">
+📚
+<br>
+Μαθήματα
+</div>
+
+<div class="fake-box">
+📢
+<br>
+Ανακοινώσεις
+</div>
+
+<div class="fake-box">
+📞
+<br>
+Επικοινωνία
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<p class="center big">
+🌐 Αυτός είναι ένας <strong>ιστότοπος</strong>
+που περιλαμβάνει πολλές σελίδες.
+</p>
+
+</div>
+
+<div class="nav">
+
+<button class="secondary" onclick="prevScreen()">
+⬅️ Πίσω
+</button>
+
+<button onclick="nextScreen()">
+➡️ Τελικό παιχνίδι
+</button>
+
+</div>
+
+</section>
+
+
+<!-- ===================== -->
+<!-- 9. QUIZ -->
+<!-- ===================== -->
+
+<section class="screen" id="screen9">
+
+<div class="card">
+
+<h2>🏆 Τελικό παιχνίδι</h2>
+
+<div id="quizQuestion" class="question"></div>
+
+<div id="quizAnswers" class="answer-grid"></div>
+
+<div id="quizFeedback" class="feedback"></div>
+
+<div class="center">
+
+<button id="nextQuiz"
+onclick="nextQuizQuestion()"
+style="display:none">
+
+➡️ Επόμενη ερώτηση
+
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ===================== -->
+<!-- 10. ΤΕΛΟΣ -->
+<!-- ===================== -->
+
+<section class="screen" id="screen10">
+
+<div class="card center">
+
+<h2>🎉 Μπράβο!</h2>
+
+<div id="finalScore" class="score"></div>
+
+<div class="memory memory-blue">
+
+<h2>📄 Θυμάμαι:</h2>
+
+<p class="big">
+<strong>Ιστοσελίδα</strong>
+<br>
+μία συγκεκριμένη σελίδα
+</p>
+
+</div>
+
+<div class="memory memory-green">
+
+<h2>🌐 Θυμάμαι:</h2>
+
+<p class="big">
+<strong>Ιστότοπος</strong>
+<br>
+πολλές σχετικές ιστοσελίδες μαζί
+</p>
+
+</div>
+
+<p class="big">
+⭐ Αυτές είναι οι δύο βασικές ιδέες του μαθήματος!
+</p>
+
+<button onclick="restart()">
+🔄 Ξανά από την αρχή
+</button>
+
+</div>
+
+</section>
+
+</div>
+
+
+<script>
+
+let currentScreen = 1;
+const totalScreens = 10;
+
+function showScreen(number) {
+
+    document.querySelectorAll(".screen")
+        .forEach(screen => {
+            screen.classList.remove("active");
+        });
+
+    document.getElementById("screen" + number)
+        .classList.add("active");
+
+    currentScreen = number;
+
+    const percentage =
+        ((number - 1) / (totalScreens - 1)) * 100;
+
+    document.getElementById("progressBar")
+        .style.width = percentage + "%";
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+    if (number === 9) {
+        startQuiz();
+    }
+}
+
+function nextScreen() {
+
+    if (currentScreen < totalScreens) {
+        showScreen(currentScreen + 1);
+    }
+
+}
+
+function prevScreen() {
+
+    if (currentScreen > 1) {
+        showScreen(currentScreen - 1);
+    }
+
+}
+
+
+/* Απαντήσεις */
+
+function answer(button, correct, feedbackId) {
+
+    const feedback =
+        document.getElementById(feedbackId);
+
+    if (correct) {
+
+        button.style.outline =
+            "6px solid #24945a";
+
+        feedback.innerHTML =
+            "🎉 Μπράβο! Σωστή απάντηση!";
+
+        feedback.style.color =
+            "#24945a";
+
+    } else {
+
+        button.style.outline =
+            "6px solid #c94343";
+
+        feedback.innerHTML =
+            "🙂 Όχι ακόμη. Ξανασκέψου το!";
+
+        feedback.style.color =
+            "#c94343";
+    }
+
+}
+
+
+/* Αντιστοίχιση */
+
+let firstMatch = null;
+
+function selectMatch(element, pair) {
+
+    if (!firstMatch) {
+
+        firstMatch = {
+            element: element,
+            pair: pair
+        };
+
+        element.classList.add("selected");
+
+        document.getElementById("matchResult")
+            .innerHTML =
+            "Τώρα πάτησε την εξήγηση που ταιριάζει.";
+
+        return;
+    }
+
+    if (element === firstMatch.element) {
+        return;
+    }
+
+    if (element.dataset.pair === firstMatch.pair) {
+
+        element.classList.add("correct");
+
+        firstMatch.element
+            .classList.add("correct");
+
+        document.getElementById("matchResult")
+            .innerHTML =
+            "🎉 Σωστά! Ταίριαξαν!";
+
+        document.getElementById("matchResult")
+            .style.color =
+            "#24945a";
+
+        firstMatch = null;
+
+    } else {
+
+        element.classList.add("wrong");
+
+        firstMatch.element
+            .classList.add("wrong");
+
+        document.getElementById("matchResult")
+            .innerHTML =
+            "🙂 Δεν ταιριάζουν. Δοκίμασε ξανά.";
+
+        document.getElementById("matchResult")
+            .style.color =
+            "#c94343";
+
+        const old =
+            firstMatch.element;
+
+        setTimeout(() => {
+
+            element.classList.remove("wrong");
+            old.classList.remove("wrong");
+            old.classList.remove("selected");
+
+            firstMatch = null;
+
+        }, 900);
+
+    }
+
+}
+
+
+/* Τελικό Quiz */
+
+const quiz = [
+
+{
+    question:
+    "📄 Τι είναι μία ιστοσελίδα;",
+
+    answers: [
+        "Μία συγκεκριμένη σελίδα",
+        "Πολλές σελίδες μαζί"
+    ],
+
+    correct: 0
+},
+
+{
+    question:
+    "🌐 Τι είναι ένας ιστότοπος;",
+
+    answers: [
+        "Μία μόνο σελίδα",
+        "Πολλές σχετικές ιστοσελίδες μαζί"
+    ],
+
+    correct: 1
+},
+
+{
+    question:
+    "🏫 Ένας σχολικός ιστότοπος μπορεί να έχει:",
+
+    answers: [
+        "Μόνο μία σελίδα",
+        "Πολλές σελίδες"
+    ],
+
+    correct: 1
+},
+
+{
+    question:
+    "📚 «Μαθήματα» και «Ανακοινώσεις» μπορούν να είναι:",
+
+    answers: [
+        "Σελίδες ενός ιστότοπου",
+        "Υπολογιστές"
+    ],
+
+    correct: 0
+},
+
+{
+    question:
+    "⭐ Ιστότοπος =",
+
+    answers: [
+        "μία συγκεκριμένη σελίδα",
+        "πολλές σχετικές ιστοσελίδες μαζί"
+    ],
+
+    correct: 1
+}
+
+];
+
+let quizIndex = 0;
+let score = 0;
+
+function startQuiz() {
+
+    quizIndex = 0;
+    score = 0;
+
+    showQuizQuestion();
+}
+
+function showQuizQuestion() {
+
+    if (quizIndex >= quiz.length) {
+
+        showScreen(10);
+
+        document.getElementById("finalScore")
+            .innerHTML =
+            "🏆 " + score + " / " + quiz.length;
+
+        return;
+    }
+
+    const q = quiz[quizIndex];
+
+    document.getElementById("quizQuestion")
+        .innerHTML =
+        (quizIndex + 1) +
+        ". " +
+        q.question;
+
+    const answers =
+        document.getElementById("quizAnswers");
+
+    answers.innerHTML = "";
+
+    document.getElementById("quizFeedback")
+        .innerHTML = "";
+
+    document.getElementById("nextQuiz")
+        .style.display = "none";
+
+    q.answers.forEach((answerText, index) => {
+
+        const button =
+            document.createElement("button");
+
+        button.className = "answer";
+
+        button.textContent =
+            answerText;
+
+        button.addEventListener("click", () => {
+
+            document.querySelectorAll(
+                "#quizAnswers button"
+            ).forEach(b => {
+                b.disabled = true;
+            });
+
+            if (index === q.correct) {
+
+                score++;
+
+                button.style.background =
+                    "#24945a";
+
+                document.getElementById(
+                    "quizFeedback"
+                ).innerHTML =
+                    "🎉 Μπράβο! Σωστό!";
+
+                document.getElementById(
+                    "quizFeedback"
+                ).style.color =
+                    "#24945a";
+
+            } else {
+
+                button.style.background =
+                    "#c94343";
+
+                document.getElementById(
+                    "quizFeedback"
+                ).innerHTML =
+                    "🙂 Η σωστή απάντηση είναι: " +
+                    q.answers[q.correct];
+
+                document.getElementById(
+                    "quizFeedback"
+                ).style.color =
+                    "#c94343";
+            }
+
+            document.getElementById("nextQuiz")
+                .style.display =
+                "inline-block";
+
+        });
+
+        answers.appendChild(button);
+
+    });
+
+}
+
+function nextQuizQuestion() {
+
+    quizIndex++;
+
+    showQuizQuestion();
+
+}
+
+function restart() {
+
+    score = 0;
+    quizIndex = 0;
+    firstMatch = null;
+
+    document.querySelectorAll(".match-item")
+        .forEach(item => {
+
+            item.classList.remove(
+                "selected",
+                "correct",
+                "wrong"
+            );
+
+        });
+
+    showScreen(1);
+
+}
+
+</script>
+
+</body>
+</html>
