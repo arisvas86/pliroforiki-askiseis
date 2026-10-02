@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Επαναληπτικό Guard Dog – App Inventor</title>
+<style>
+body{margin:0;font-family:Arial,sans-serif;background:#f4f7fb;color:#1f2937;line-height:1.5}
+.wrap{max-width:950px;margin:auto;padding:18px}
+header,.card{background:white;border-radius:16px;padding:20px;margin:16px 0;box-shadow:0 3px 12px #0001}
+header{background:#1d4ed8;color:white}
+h1{margin:0 0 8px} h2{color:#1d4ed8}
+header h2{color:white}
+button,select{font:inherit}
+.choice{display:block;width:100%;text-align:left;background:white;border:2px solid #d1d5db;border-radius:10px;padding:11px;margin:7px 0;cursor:pointer}
+.choice:hover{background:#eff6ff}
+.correct{background:#dcfce7!important;border-color:#16a34a!important}
+.wrong{background:#fee2e2!important;border-color:#dc2626!important}
+.feedback{font-weight:bold;min-height:25px;margin:8px 0}
+.match{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0;align-items:center}
+select{width:100%;padding:10px;border:2px solid #d1d5db;border-radius:10px}
+.check,.restart{background:#1d4ed8;color:white;border:0;border-radius:10px;padding:11px 16px;cursor:pointer;font-weight:bold}
+.restart{background:#374151}
+@media(max-width:650px){.match{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+<h1>🐶 Επαναληπτικό Guard Dog</h1>
+<p>App Inventor – μέχρι το τέλος του Βήματος 5</p>
+<p><strong>Δεν χρησιμοποιούμε Blocks.</strong></p>
+</header>
+
+<div class="card">
+<h2>📌 Τι θυμάμαι;</h2>
+<p>Screen1 • Canvas • ImageSprite • Sound • Properties • Media</p>
+</div>
+
+<div class="card" id="m1">
+<h2>1️⃣ Αντιστοίχιση</h2>
+<p>Ταίριαξε κάθε αντικείμενο με τη σωστή περιγραφή.</p>
+<div class="match"><b>Canvas</b><select data-a="Χώρος όπου βρίσκεται ο σκύλος"><option value="">-- επίλεξε --</option><option>Χώρος όπου βρίσκεται ο σκύλος</option><option>Εικόνα του σκύλου</option><option>Ήχος</option></select></div>
+<div class="match"><b>ImageSprite</b><select data-a="Εικόνα του σκύλου"><option value="">-- επίλεξε --</option><option>Χώρος όπου βρίσκεται ο σκύλος</option><option>Εικόνα του σκύλου</option><option>Ήχος</option></select></div>
+<div class="match"><b>Sound</b><select data-a="Ήχος"><option value="">-- επίλεξε --</option><option>Χώρος όπου βρίσκεται ο σκύλος</option><option>Εικόνα του σκύλου</option><option>Ήχος</option></select></div>
+<button class="check" onclick="check('m1','f1')">Έλεγχος</button><div id="f1" class="feedback"></div>
+</div>
+
+<div class="card">
+<h2>2️⃣ Σωστό ή Λάθος</h2>
+<div class="tf" data-a="Σωστό"><p><strong>Το Canvas είναι η επιφάνεια μέσα στην οποία μπορούμε να χειριζόμαστε φιγούρες.</strong></p><button class="choice" onclick="tf(this,'Σωστό')">✔ Σωστό</button><button class="choice" onclick="tf(this,'Λάθος')">✘ Λάθος</button><div class="feedback"></div></div>
+<div class="tf" data-a="Λάθος"><p><strong>Το Sound εμφανίζεται μέσα στην οθόνη της εφαρμογής όπως μια εικόνα.</strong></p><button class="choice" onclick="tf(this,'Σωστό')">✔ Σωστό</button><button class="choice" onclick="tf(this,'Λάθος')">✘ Λάθος</button><div class="feedback"></div></div>
+<div class="tf" data-a="Σωστό"><p><strong>Το DogCanvas έχει BackgroundImage το Grass.jpg.</strong></p><button class="choice" onclick="tf(this,'Σωστό')">✔ Σωστό</button><button class="choice" onclick="tf(this,'Λάθος')">✘ Λάθος</button><div class="feedback"></div></div>
+<div class="tf" data-a="Λάθος"><p><strong>Το DogSprite έχει ως Picture το AngryDog.png.</strong></p><button class="choice" onclick="tf(this,'Σωστό')">✔ Σωστό</button><button class="choice" onclick="tf(this,'Λάθος')">✘ Λάθος</button><div class="feedback"></div></div>
+</div>
+
+<div class="card">
+<h2>3️⃣ Βρες την ιδιότητα</h2>
+<p>Η σωστή απάντηση υπάρχει πάντα στις επιλογές.</p>
+<div class="prop" data-a="Picture"><p><strong>Θέλω να αλλάξω την εικόνα του σκύλου.</strong></p><button class="choice" onclick="pick(this)">Width</button><button class="choice" onclick="pick(this)">Picture</button><button class="choice" onclick="pick(this)">Source</button><button class="choice" onclick="pick(this)">Height</button><div class="feedback"></div></div>
+<div class="prop" data-a="Width"><p><strong>Ποια ιδιότητα καθορίζει το πλάτος του Canvas;</strong></p><button class="choice" onclick="pick(this)">Picture</button><button class="choice" onclick="pick(this)">Width</button><button class="choice" onclick="pick(this)">Source</button><button class="choice" onclick="pick(this)">Interval</button><div class="feedback"></div></div>
+<div class="prop" data-a="Height"><p><strong>Ποια ιδιότητα καθορίζει το ύψος του Canvas;</strong></p><button class="choice" onclick="pick(this)">Picture</button><button class="choice" onclick="pick(this)">Source</button><button class="choice" onclick="pick(this)">Height</button><button class="choice" onclick="pick(this)">MinimumInterval</button><div class="feedback"></div></div>
+<div class="prop" data-a="BackgroundImage"><p><strong>Θέλω να βάλω το γρασίδι ως φόντο του Canvas.</strong></p><button class="choice" onclick="pick(this)">Picture</button><button class="choice" onclick="pick(this)">BackgroundImage</button><button class="choice" onclick="pick(this)">Source</button><button class="choice" onclick="pick(this)">Interval</button><div class="feedback"></div></div>
+<div class="prop" data-a="Source"><p><strong>Θέλω να ορίσω ποιο αρχείο ήχου θα χρησιμοποιεί το Sound.</strong></p><button class="choice" onclick="pick(this)">Picture</button><button class="choice" onclick="pick(this)">Width</button><button class="choice" onclick="pick(this)">Source</button><button class="choice" onclick="pick(this)">BackgroundImage</button><div class="feedback"></div></div>
+<div class="prop" data-a="MinimumInterval"><p><strong>Θέλω να ορίσω τον ελάχιστο χρόνο πριν μπορέσει να επαναληφθεί ο ήχος.</strong></p><button class="choice" onclick="pick(this)">Interval</button><button class="choice" onclick="pick(this)">MinimumInterval</button><button class="choice" onclick="pick(this)">Width</button><button class="choice" onclick="pick(this)">Picture</button><div class="feedback"></div></div>
+</div>
+
+<div class="card" id="m2">
+<h2>4️⃣ Τα αρχεία Media</h2>
+<div class="match"><b>Grass.jpg</b><select data-a="Το γρασίδι / φόντο"><option value="">-- επίλεξε --</option><option>Το γρασίδι / φόντο</option><option>Η ήρεμη φιγούρα</option><option>Η θυμωμένη φιγούρα</option><option>Ο ήχος του γαβγίσματος</option></select></div>
+<div class="match"><b>SleepyDog.png</b><select data-a="Η ήρεμη φιγούρα"><option value="">-- επίλεξε --</option><option>Το γρασίδι / φόντο</option><option>Η ήρεμη φιγούρα</option><option>Η θυμωμένη φιγούρα</option><option>Ο ήχος του γαβγίσματος</option></select></div>
+<div class="match"><b>AngryDog.png</b><select data-a="Η θυμωμένη φιγούρα"><option value="">-- επίλεξε --</option><option>Το γρασίδι / φόντο</option><option>Η ήρεμη φιγούρα</option><option>Η θυμωμένη φιγούρα</option><option>Ο ήχος του γαβγίσματος</option></select></div>
+<div class="match"><b>Bark.mp3</b><select data-a="Ο ήχος του γαβγίσματος"><option value="">-- επίλεξε --</option><option>Το γρασίδι / φόντο</option><option>Η ήρεμη φιγούρα</option><option>Η θυμωμένη φιγούρα</option><option>Ο ήχος του γαβγίσματος</option></select></div>
+<button class="check" onclick="check('m2','f2')">Έλεγχος</button><div id="f2" class="feedback"></div>
+</div>
+
+<div class="card">
+<h2>5️⃣ Τελικό Quiz</h2>
+<div class="quiz" data-a="Canvas"><p><strong>Ποιο αντικείμενο είναι ο χώρος όπου βρίσκεται ο σκύλος;</strong></p><button class="choice" onclick="pick(this)">Canvas</button><button class="choice" onclick="pick(this)">Sound</button><button class="choice" onclick="pick(this)">Screen1</button><div class="feedback"></div></div>
+<div class="quiz" data-a="DogCanvas"><p><strong>Πώς ονομάσαμε το Canvas;</strong></p><button class="choice" onclick="pick(this)">DogSprite</button><button class="choice" onclick="pick(this)">DogCanvas</button><button class="choice" onclick="pick(this)">DogBarkingSound</button><div class="feedback"></div></div>
+<div class="quiz" data-a="Grass.jpg"><p><strong>Ποια εικόνα χρησιμοποιείται ως φόντο του Canvas;</strong></p><button class="choice" onclick="pick(this)">Bark.mp3</button><button class="choice" onclick="pick(this)">SleepyDog.png</button><button class="choice" onclick="pick(this)">Grass.jpg</button><div class="feedback"></div></div>
+<div class="quiz" data-a="DogSprite"><p><strong>Πώς ονομάσαμε τη φιγούρα του σκύλου;</strong></p><button class="choice" onclick="pick(this)">DogCanvas</button><button class="choice" onclick="pick(this)">DogSprite</button><button class="choice" onclick="pick(this)">DogBarkingSound</button><div class="feedback"></div></div>
+<div class="quiz" data-a="SleepyDog.png"><p><strong>Ποια εικόνα χρησιμοποιεί αρχικά ο σκύλος;</strong></p><button class="choice" onclick="pick(this)">AngryDog.png</button><button class="choice" onclick="pick(this)">Grass.jpg</button><button class="choice" onclick="pick(this)">SleepyDog.png</button><div class="feedback"></div></div>
+<div class="quiz" data-a="Sound"><p><strong>Ποιο αντικείμενο χρησιμοποιούμε για τον ήχο;</strong></p><button class="choice" onclick="pick(this)">ImageSprite</button><button class="choice" onclick="pick(this)">Canvas</button><button class="choice" onclick="pick(this)">Sound</button><div class="feedback"></div></div>
+<div class="quiz" data-a="DogBarkingSound"><p><strong>Πώς ονομάσαμε το Sound;</strong></p><button class="choice" onclick="pick(this)">DogBarkingSound</button><button class="choice" onclick="pick(this)">DogCanvas</button><button class="choice" onclick="pick(this)">DogSprite</button><div class="feedback"></div></div>
+<div class="quiz" data-a="Bark.mp3"><p><strong>Ποιο αρχείο είναι ο ήχος του γαβγίσματος;</strong></p><button class="choice" onclick="pick(this)">Bark.mp3</button><button class="choice" onclick="pick(this)">Grass.jpg</button><button class="choice" onclick="pick(this)">AngryDog.png</button><div class="feedback"></div></div>
+<div class="quiz" data-a="Όχι"><p><strong>Εμφανίζεται το Sound μέσα στην οθόνη της εφαρμογής;</strong></p><button class="choice" onclick="pick(this)">Ναι</button><button class="choice" onclick="pick(this)">Όχι</button><button class="choice" onclick="pick(this)">Μόνο με εικόνα</button><div class="feedback"></div></div>
+<div class="quiz" data-a="BackgroundImage"><p><strong>Ποια ιδιότητα ορίζει την εικόνα φόντου του Canvas;</strong></p><button class="choice" onclick="pick(this)">Source</button><button class="choice" onclick="pick(this)">BackgroundImage</button><button class="choice" onclick="pick(this)">Picture</button><div class="feedback"></div></div>
+</div>
+
+<div class="card"><button class="restart" onclick="location.reload()">🔄 Ξεκίνα ξανά</button></div>
+</div>
+<script>
+function tf(b,v){let x=b.parentElement,a=x.dataset.a==='Σωστό',ok=(v==='Σωστό')===a;x.querySelectorAll('.choice').forEach(q=>q.classList.remove('correct','wrong'));b.classList.add(ok?'correct':'wrong');x.querySelector('.feedback').textContent=ok?'✅ Σωστό!':'❌ Δοκίμασε ξανά.'}
+function pick(b){let x=b.parentElement,a=x.dataset.a,ok=b.textContent.trim()===a;x.querySelectorAll('.choice').forEach(q=>q.classList.remove('correct','wrong'));b.classList.add(ok?'correct':'wrong');x.querySelector('.feedback').textContent=ok?'✅ Σωστό!':'❌ Δοκίμασε ξανά.'}
+function check(id,fid){let n=0,g=0;document.getElementById(id).querySelectorAll('select').forEach(s=>{n++;let ok=s.value===s.dataset.a;g+=ok?1:0;s.style.borderColor=ok?'#16a34a':'#dc2626'});let f=document.getElementById(fid);f.textContent=g===n?'✅ Όλα σωστά!':`Έχεις ${g}/${n} σωστά.`;f.style.color=g===n?'#15803d':'#b91c1c'}
+</script>
+</body>
+</html>
