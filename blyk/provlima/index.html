@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Διαδραστική άσκηση – Τι είναι πρόβλημα;</title>
+<style>
+:root{--blue:#174ea6;--pale:#eaf2ff;--green:#16803c;--red:#b42318;--ink:#1f2937;--line:#d5deea}
+*{box-sizing:border-box}
+body{margin:0;background:#f3f6fb;color:var(--ink);font-family:Arial,Helvetica,sans-serif;line-height:1.5}
+header{background:linear-gradient(130deg,#174ea6,#4285f4);color:white;padding:28px 16px;text-align:center}
+header h1{margin:0 0 6px;font-size:clamp(24px,4vw,34px)}
+header p{margin:4px auto;max-width:760px}
+main{max-width:900px;margin:0 auto;padding:18px}
+.panel{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px;margin:16px 0;box-shadow:0 3px 10px #1d355710}
+h2{color:var(--blue);margin-top:0}
+.tip{background:var(--pale);border-left:5px solid var(--blue);padding:12px 15px;border-radius:8px}
+.item{border:1px solid var(--line);border-radius:12px;padding:14px;margin:12px 0}
+.item p{margin:0 0 10px}
+.buttons{display:flex;flex-wrap:wrap;gap:8px}
+button{font:inherit;font-weight:700;border:0;border-radius:9px;padding:10px 15px;cursor:pointer}
+.choice{background:#eef2f7;color:#1f2937;border:2px solid #d3dce8}
+.choice:hover{background:#e1e9f4}
+.choice:focus-visible,button:focus-visible{outline:3px solid #fbbf24;outline-offset:2px}
+.choice:disabled{cursor:default;opacity:1}
+.green{background:#d8f3df!important;border-color:var(--green)!important}
+.red{background:#fde2e0!important;border-color:var(--red)!important}
+.feedback{font-weight:700;margin-top:9px;min-height:1.5em}
+.primary{background:var(--blue);color:#fff}
+.secondary{background:#e5e7eb;color:#111827}
+.score{font-size:1.15rem;font-weight:700;background:#fff4cc;border:1px solid #e5c45b;padding:14px;border-radius:10px}
+.small{font-size:.94rem;color:#4b5563}
+footer{text-align:center;color:#64748b;padding:18px}
+@media(max-width:520px){main{padding:10px}.panel{padding:15px}.choice{flex:1 1 100%}}
+</style>
+</head>
+<body>
+<header>
+  <h1>🧠 Τι είναι πρόβλημα;</h1>
+  <p>Β΄ Λυκείου ΕΝ.Ε.Ε.ΓΥ.-Λ. · Πληροφορική · Ενότητα 2.1.1</p>
+  <p>Διάβασε κάθε κατάσταση και αποφάσισε αν υπάρχει κάτι που πρέπει να βρούμε ή να πετύχουμε.</p>
+</header>
+<main>
+  <section class="panel">
+    <h2>📘 Θυμάμαι</h2>
+    <div class="tip">
+      <strong>Πρόβλημα:</strong> υπάρχει ένα συγκεκριμένο ερώτημα που πρέπει να απαντήσω ή ένας στόχος που θέλω να πετύχω.<br>
+      <strong>Δεν είναι πρόβλημα:</strong> περιγράφεται μια κατάσταση, χωρίς να ζητείται κάτι συγκεκριμένο.
+    </div>
+    <p class="small">Δεν χρειάζεται να κάνεις πράξεις σε όλες τις περιπτώσεις. Σκέψου μόνο αν υπάρχει ζητούμενο.</p>
+  </section>
+
+  <section class="panel">
+    <h2>🎯 Άσκηση 1 – Πρόβλημα ή δεν είναι πρόβλημα;</h2>
+    <p>Πάτησε μία απάντηση σε κάθε κάρτα. Τα παραδείγματα είναι καινούρια.</p>
+    <div id="questions"></div>
+    <div class="score" id="score" aria-live="polite">Έχεις απαντήσει σε 0 από 8 καταστάσεις.</div>
+    <div class="buttons" style="margin-top:12px">
+      <button class="primary" id="check" type="button">Έλεγχος αποτελέσματος</button>
+      <button class="secondary" id="reset" type="button">Ξεκινώ ξανά</button>
+    </div>
+    <p id="result" class="feedback" aria-live="polite"></p>
+  </section>
+
+  <section class="panel">
+    <h2>🔎 Άσκηση 2 – Τι θέλω να βρω;</h2>
+    <p>Η σχολική εκδρομή ξεκινά στις 9:15. Τώρα είναι 8:45. Η ερώτηση είναι: «Πόσα λεπτά απομένουν μέχρι να ξεκινήσει η εκδρομή;»</p>
+    <p><strong>Τι είναι το ζητούμενο;</strong></p>
+    <div class="buttons" id="goalChoices">
+      <button class="choice" data-correct="false" type="button">Πού θα πάει η εκδρομή</button>
+      <button class="choice" data-correct="true" type="button">Πόσα λεπτά απομένουν</button>
+      <button class="choice" data-correct="false" type="button">Ποιος θα συνοδεύσει τους μαθητές</button>
+    </div>
+    <p class="feedback" id="goalFeedback" aria-live="polite"></p>
+  </section>
+
+  <section class="panel">
+    <h2>💭 Άσκηση 3 – Βρες το πρόβλημα</h2>
+    <p>Διάλεξε ποια πρόταση περιλαμβάνει ένα συγκεκριμένο ζητούμενο.</p>
+    <div class="buttons" id="findChoices" style="flex-direction:column;align-items:stretch">
+      <button class="choice" data-correct="false" type="button">Ο Γιώργος φοράει ένα μπλε μπουφάν.</button>
+      <button class="choice" data-correct="true" type="button">Η βιβλιοθήκη κλείνει στις 14:00. Είναι 13:20. Πόσα λεπτά μένουν μέχρι να κλείσει;</button>
+      <button class="choice" data-correct="false" type="button">Στην αυλή υπάρχουν τρία δέντρα.</button>
+    </div>
+    <p class="feedback" id="findFeedback" aria-live="polite"></p>
+  </section>
+</main>
+<footer>Πληροφορική · Β΄ Λυκείου ΕΝ.Ε.Ε.ΓΥ.-Λ.</footer>
+<script>
+const data = [
+ {text:"1. Στο ψυγείο υπάρχουν 3 γιαούρτια. Η οικογένεια χρειάζεται 7. Πόσα γιαούρτια πρέπει να αγοράσει;",problem:true,why:"Υπάρχει συγκεκριμένο ζητούμενο: πόσα γιαούρτια λείπουν."},
+ {text:"2. Ένα κόκκινο ποδήλατο είναι ακουμπισμένο στον τοίχο.",problem:false,why:"Περιγράφεται μια κατάσταση, αλλά δεν υπάρχει ερώτημα ή στόχος."},
+ {text:"3. Η ταινία αρχίζει στις 18:30. Είναι 18:05. Πόσα λεπτά απομένουν;",problem:true,why:"Ζητείται να υπολογίσουμε τον χρόνο που απομένει."},
+ {text:"4. Η Άννα ζωγραφίζει ένα λουλούδι.",problem:false,why:"Δεν ζητείται να βρούμε ή να πετύχουμε κάτι συγκεκριμένο."},
+ {text:"5. Ένα ασανσέρ χωρά 6 άτομα. Περιμένουν 9 άτομα. Πόσα άτομα θα χρειαστεί να περιμένουν τον επόμενο γύρο;",problem:true,why:"Υπάρχει συγκεκριμένο ερώτημα που χρειάζεται απάντηση."},
+ {text:"6. Στο πάρκο φυσάει δυνατός αέρας.",problem:false,why:"Η πρόταση περιγράφει τον καιρό χωρίς συγκεκριμένο ζητούμενο."},
+ {text:"7. Η ομάδα έχει συγκεντρώσει 18 πόντους και χρειάζεται 25 για να κερδίσει ένα βραβείο. Πόσους πόντους χρειάζεται ακόμη;",problem:true,why:"Υπάρχει στόχος και ζητείται να βρούμε πόσοι πόντοι λείπουν."},
+ {text:"8. Ένα ρομπότ κινείται μέσα σε μια έκθεση.",problem:false,why:"Δεν αναφέρεται κάποια αποστολή ή ερώτημα που πρέπει να λυθεί."}
+];
+const root=document.getElementById("questions");
+let answers={};
+function render(){
+ root.innerHTML="";
+ data.forEach((q,i)=>{
+   const div=document.createElement("div"); div.className="item";
+   const p=document.createElement("p"); p.textContent=q.text; div.appendChild(p);
+   const row=document.createElement("div"); row.className="buttons";
+   [["true","🟢 Πρόβλημα"],["false","🔴 Δεν είναι πρόβλημα"]].forEach(([val,label])=>{
+     const b=document.createElement("button"); b.type="button"; b.className="choice"; b.textContent=label;
+     b.addEventListener("click",()=>{
+       answers[i]=val==="true";
+       [...row.children].forEach(x=>{x.disabled=false;x.classList.remove("green","red")});
+       b.classList.add("green"); row.querySelectorAll("button").forEach(x=>x.disabled=true);
+       fb.textContent="";
+       updateScore();
+     });
+     row.appendChild(b);
+   });
+   div.appendChild(row);
+   const fb=document.createElement("p"); fb.className="feedback"; fb.id="fb"+i; fb.setAttribute("aria-live","polite"); div.appendChild(fb);
+   root.appendChild(div);
+ });
+ updateScore();
+}
+function updateScore(){
+ const n=Object.keys(answers).length;
+ document.getElementById("score").textContent=`Έχεις απαντήσει σε ${n} από ${data.length} καταστάσεις.`;
+}
+document.getElementById("check").addEventListener("click",()=>{
+ const n=Object.keys(answers).length;
+ if(n<data.length){document.getElementById("result").textContent=`Απάντησες σε ${n} από τις ${data.length}. Ολοκλήρωσε όλες τις κάρτες και ξαναπάτησε έλεγχο.`;return;}
+ let score=0;
+ data.forEach((q,i)=>{
+  const ok=answers[i]===q.problem;if(ok)score++;
+  document.getElementById("fb"+i).textContent=(ok?"✓ Σωστά! ":"↻ Δες ξανά. ")+q.why;
+ });
+ document.getElementById("result").textContent=`Αποτέλεσμα: ${score}/8 σωστές απαντήσεις.`+(score===8?" Μπράβο, τα κατάφερες!":score>=5?" Πολύ καλή προσπάθεια! Ξαναδιάβασε τις εξηγήσεις.":" Συνέχισε την εξάσκηση και ξαναδοκίμασε.");
+});
+document.getElementById("reset").addEventListener("click",()=>{answers={};document.getElementById("result").textContent="";render();});
+function setupChoiceGroup(containerId,feedbackId,correctText){
+ const box=document.getElementById(containerId),fb=document.getElementById(feedbackId);
+ box.querySelectorAll("button").forEach(btn=>btn.addEventListener("click",()=>{
+   box.querySelectorAll("button").forEach(b=>{b.disabled=true;b.classList.remove("green","red")});
+   btn.classList.add(btn.dataset.correct==="true"?"green":"red");
+   fb.textContent=btn.dataset.correct==="true"?correctText:"Δοκίμασε ξανά αφού ξαναδιαβάσεις τι ακριβώς ζητά η ερώτηση.";
+ }));
+}
+setupChoiceGroup("goalChoices","goalFeedback","Σωστά! Το ζητούμενο είναι ο χρόνος που απομένει.");
+setupChoiceGroup("findChoices","findFeedback","Σωστά! Η πρόταση περιέχει συγκεκριμένο ερώτημα που πρέπει να απαντηθεί.");
+render();
+</script>
+</body>
+</html>
