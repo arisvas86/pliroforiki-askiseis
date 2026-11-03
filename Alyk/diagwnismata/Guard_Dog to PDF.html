@@ -268,17 +268,13 @@ document.getElementById("check").addEventListener("click",()=>{
 
 async function sendResultEmail(details, earned){
  const endpoint="https://script.google.com/macros/s/AKfycbz51IccsBeIbE86VEGVJguaHjifzK4NFiKmXPf6bdSFfFPOGfeOP5DBVRRoIQIccV1n/exec";
- if(endpoint.startsWith("ΒΑΛΕ_ΕΔΩ")){
-  console.warn("Δεν έχει οριστεί ακόμη το URL αποστολής email.");
-  return;
- }
  const student=(document.getElementById("student").value||"").trim();
  const className=(document.getElementById("className").value||"").trim();
  const dateField=[...document.querySelectorAll(".meta label")][2]?.querySelector("input");
  const date=(dateField?.value||new Date().toLocaleString("el-GR"));
  const answers=details.map((d,i)=>{
   let answer="—";
-  if(i<7){const el=document.querySelectorAll("#t1 select")[i];answer=el.options[el.selectedIndex]?.text||"—";}
+  if(i<7){const el=document.querySelectorAll("#t1 select")[i];answer=el?.options[el.selectedIndex]?.text||"—";}
   else if(i<15){const el=document.querySelector(`input[name="tf${i-7}"]:checked`);answer=el?el.value:"—";}
   else if(i<20){const n=i-15;const el=document.querySelector(`input[name="mc${n}"]:checked`);answer=el?mcQuestions[n][1][Number(el.value)]:"—";}
   else if(i<25){answer=document.querySelector(`[data-key="fill${i-20}"]`)?.value||"—";}
@@ -286,8 +282,35 @@ async function sendResultEmail(details, earned){
   return {question:d.label,answer,correct:d.correct,status:d.ok?"Σωστό":"Λάθος",points:d.points};
  });
  const payload={student,className,date,grade:earned.toFixed(2).replace(".",",")+" / 20",answers};
- // Χρησιμοποιούμε απλό POST ώστε να μην απαιτείται προέλεγχος CORS από τον browser.
- await fetch(endpoint,{method:"POST",mode:"no-cors",body:new URLSearchParams({payload:JSON.stringify(payload)})});
+
+ // Αποστολή με κανονική HTML φόρμα προς κρυφό iframe.
+ // Έτσι αποφεύγεται το fetch/CORS για την κλήση προς το Google Apps Script.
+ const frameName="guardDogEmailFrame";
+ let frame=document.querySelector(`iframe[name="${frameName}"]`);
+ if(!frame){
+  frame=document.createElement("iframe");
+  frame.name=frameName;
+  frame.title="Αποστολή αποτελεσμάτων";
+  frame.style.display="none";
+  document.body.appendChild(frame);
+ }
+ const form=document.createElement("form");
+ form.method="POST";
+ form.action=endpoint;
+ form.target=frameName;
+ form.acceptCharset="UTF-8";
+ form.style.display="none";
+ const field=document.createElement("input");
+ field.type="hidden";
+ field.name="payload";
+ field.value=JSON.stringify(payload);
+ form.appendChild(field);
+ document.body.appendChild(form);
+ try{
+  form.submit();
+ } finally {
+  setTimeout(()=>form.remove(), 2000);
+ }
 }
 
 async function exportQuizPdf(details, earned){
