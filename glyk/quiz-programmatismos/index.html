@@ -1,0 +1,435 @@
+
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Τεστ – Εισαγωγή στον Προγραμματισμό</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 20px;
+  background: #f1f5f9;
+  font-family: Arial, sans-serif;
+  color: #243247;
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 850px;
+  margin: auto;
+  background: white;
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: 0 3px 15px #00000012;
+}
+
+header {
+  background: #173b70;
+  color: white;
+  padding: 25px;
+  border-radius: 12px;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+h1 {
+  margin: 0 0 10px;
+  font-size: 27px;
+}
+
+header p {
+  margin: 0;
+}
+
+h2 {
+  color: #173b70;
+  font-size: 22px;
+  margin-top: 30px;
+}
+
+.question {
+  background: #f1f6fc;
+  padding: 16px;
+  border-radius: 10px;
+  margin: 14px 0;
+  border-left: 5px solid #1765a5;
+}
+
+.question p {
+  margin-top: 0;
+  font-weight: bold;
+}
+
+select {
+  width: 100%;
+  max-width: 100%;
+  padding: 12px;
+  font-size: 17px;
+  border: 2px solid #9bafc5;
+  border-radius: 8px;
+  background: white;
+  margin-top: 7px;
+}
+
+select:focus {
+  outline: 3px solid #a9d5ff;
+}
+
+.feedback {
+  font-weight: bold;
+  margin-top: 8px;
+  min-height: 25px;
+}
+
+.correct {
+  color: #16713b;
+}
+
+.wrong {
+  color: #b42323;
+}
+
+button {
+  background: #1765a5;
+  color: white;
+  border: none;
+  border-radius: 9px;
+  padding: 13px 20px;
+  font-size: 17px;
+  cursor: pointer;
+  margin: 8px 5px 8px 0;
+}
+
+button:hover {
+  background: #104879;
+}
+
+.result {
+  background: #173b70;
+  color: white;
+  padding: 22px;
+  border-radius: 12px;
+  text-align: center;
+  margin-top: 25px;
+  display: none;
+}
+
+.result strong {
+  font-size: 32px;
+}
+
+.actions {
+  text-align: center;
+  margin-top: 25px;
+}
+
+.note {
+  color: #536579;
+  font-size: 15px;
+}
+
+@media(max-width:600px) {
+  body {
+    padding: 8px;
+  }
+  .container {
+    padding: 15px;
+  }
+  h1 {
+    font-size: 23px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<header>
+  <h1>🧠 Ελέγχω τις γνώσεις μου!</h1>
+  <p>Εισαγωγή στον προγραμματισμό – Βασικές έννοιες</p>
+  <p>Σύνολο: 14 βαθμοί</p>
+</header>
+
+<p>
+Διάβασε προσεκτικά κάθε ερώτηση και διάλεξε τη σωστή απάντηση.
+Όταν ολοκληρώσεις, πάτησε «Έλεγχος απαντήσεων».
+</p>
+
+<!-- ΑΝΤΙΣΤΟΙΧΙΣΗ -->
+
+<h2>1. Αντιστοίχιση εννοιών (4 βαθμοί)</h2>
+<p>Διάλεξε τη σωστή εξήγηση για κάθε έννοια.</p>
+
+<div id="matching"></div>
+
+<!-- ΣΥΜΠΛΗΡΩΣΗ -->
+
+<h2>2. Συμπληρώνω τα κενά (4 βαθμοί)</h2>
+<p>Διάλεξε τη λέξη που συμπληρώνει σωστά κάθε πρόταση.</p>
+
+<div id="blanks"></div>
+
+<!-- ΣΩΣΤΟ ΛΑΘΟΣ -->
+
+<h2>3. Σωστό ή Λάθος; (5 βαθμοί)</h2>
+<p>Διάβασε τις προτάσεις και διάλεξε Σωστό ή Λάθος.</p>
+
+<div id="truefalse"></div>
+
+<!-- ΠΟΛΛΑΠΛΗΣ -->
+
+<h2>4. Πολλαπλής επιλογής (1 βαθμός)</h2>
+
+<div class="question" id="multiple">
+  <p>Ποια εντολή της Python εμφανίζει ένα μήνυμα στην οθόνη;</p>
+  <select id="q14">
+    <option value="">-- Επίλεξε απάντηση --</option>
+    <option value="input">input()</option>
+    <option value="print">print()</option>
+    <option value="start">start()</option>
+  </select>
+  <div class="feedback" id="f14"></div>
+</div>
+
+<div class="actions">
+  <button onclick="checkAnswers()">✅ Έλεγχος απαντήσεων</button>
+  <button onclick="resetQuiz()">🔄 Ξεκινώ ξανά</button>
+</div>
+
+<div class="result" id="result">
+  <h2 style="color:white;margin-top:0">Το αποτέλεσμά σου!</h2>
+  <strong id="score">0 / 14</strong>
+  <p id="message"></p>
+</div>
+
+<p class="note" style="text-align:center;margin-top:25px">
+  Καλή προσπάθεια! ⭐
+</p>
+
+</div>
+
+<script>
+const matchQuestions = [
+  {
+    q: "1. Πρόγραμμα",
+    a: "Σύνολο εντολών που εκτελεί ο υπολογιστής",
+    options: [
+      "Σύνολο εντολών που εκτελεί ο υπολογιστής",
+      "Οδηγία προς τον υπολογιστή",
+      "Γλώσσα για τη δημιουργία προγραμμάτων",
+      "Δημιουργία προγραμμάτων"
+    ]
+  },
+  {
+    q: "2. Εντολή",
+    a: "Οδηγία προς τον υπολογιστή",
+    options: [
+      "Δημιουργία προγραμμάτων",
+      "Οδηγία προς τον υπολογιστή",
+      "Σύνολο εντολών",
+      "Γλώσσα προγραμματισμού"
+    ]
+  },
+  {
+    q: "3. Γλώσσα προγραμματισμού",
+    a: "Γλώσσα για τη δημιουργία προγραμμάτων",
+    options: [
+      "Οδηγία προς τον υπολογιστή",
+      "Δημιουργία προγραμμάτων",
+      "Γλώσσα για τη δημιουργία προγραμμάτων",
+      "Σύνολο εντολών"
+    ]
+  },
+  {
+    q: "4. Προγραμματισμός",
+    a: "Δημιουργία προγραμμάτων",
+    options: [
+      "Γλώσσα προγραμματισμού",
+      "Σύνολο εντολών",
+      "Οδηγία προς τον υπολογιστή",
+      "Δημιουργία προγραμμάτων"
+    ]
+  }
+];
+
+const blankQuestions = [
+  {
+    q: "Ο προγραμματιστής δημιουργεί __________.",
+    a: "προγράμματα",
+    options: ["προγράμματα", "οθόνες", "πληκτρολόγια"]
+  },
+  {
+    q: "Μια εντολή είναι μια __________ προς τον υπολογιστή.",
+    a: "οδηγία",
+    options: ["εικόνα", "οδηγία", "συσκευή"]
+  },
+  {
+    q: "Η Python είναι μια γλώσσα __________.",
+    a: "προγραμματισμού",
+    options: ["ζωγραφικής", "μουσικής", "προγραμματισμού"]
+  },
+  {
+    q: "Ο υπολογιστής εκτελεί τις __________ του προγράμματος.",
+    a: "εντολές",
+    options: ["εντολές", "φωτογραφίες", "οθόνες"]
+  }
+];
+
+const tfQuestions = [
+  {
+    q: "Ένα πρόγραμμα αποτελείται από εντολές.",
+    a: "Σ"
+  },
+  {
+    q: "Ο προγραμματιστής χρησιμοποιεί γλώσσα προγραμματισμού.",
+    a: "Σ"
+  },
+  {
+    q: "Ο υπολογιστής καταλαβαίνει πάντα τις ανθρώπινες οδηγίες χωρίς πρόγραμμα.",
+    a: "Λ"
+  },
+  {
+    q: "Η Python είναι γλώσσα προγραμματισμού.",
+    a: "Σ"
+  },
+  {
+    q: "Ο προγραμματισμός δεν έχει σχέση με τη δημιουργία προγραμμάτων.",
+    a: "Λ"
+  }
+];
+
+function makeSelect(id, options) {
+  return `
+    <select id="${id}">
+      <option value="">-- Επίλεξε --</option>
+      ${options.map(x =>
+        `<option value="${x}">${x}</option>`
+      ).join("")}
+    </select>
+    <div class="feedback" id="f${id}"></div>
+  `;
+}
+
+document.getElementById("matching").innerHTML =
+matchQuestions.map((item,i) => `
+  <div class="question">
+    <p>${item.q}</p>
+    ${makeSelect("m"+i,item.options)}
+  </div>
+`).join("");
+
+document.getElementById("blanks").innerHTML =
+blankQuestions.map((item,i) => `
+  <div class="question">
+    <p>${i+1}. ${item.q}</p>
+    ${makeSelect("b"+i,item.options)}
+  </div>
+`).join("");
+
+document.getElementById("truefalse").innerHTML =
+tfQuestions.map((item,i) => `
+  <div class="question">
+    <p>${i+1}. ${item.q}</p>
+    <select id="t${i}">
+      <option value="">-- Επίλεξε --</option>
+      <option value="Σ">Σωστό</option>
+      <option value="Λ">Λάθος</option>
+    </select>
+    <div class="feedback" id="ft${i}"></div>
+  </div>
+`).join("");
+
+function feedback(id, ok, explanation) {
+  const el = document.getElementById(id);
+  el.textContent = ok ? "✓ Σωστά!" : "✗ " + explanation;
+  el.className = "feedback " + (ok ? "correct" : "wrong");
+}
+
+function checkAnswers() {
+  let score = 0;
+  let unanswered = 0;
+
+  matchQuestions.forEach((item,i) => {
+    const value = document.getElementById("m"+i).value;
+    if (!value) unanswered++;
+    const ok = value === item.a;
+    if (ok) score++;
+    feedback("fm"+i,ok,"Σωστή απάντηση: " + item.a);
+  });
+
+  blankQuestions.forEach((item,i) => {
+    const value = document.getElementById("b"+i).value;
+    if (!value) unanswered++;
+    const ok = value === item.a;
+    if (ok) score++;
+    feedback("fb"+i,ok,"Σωστή λέξη: " + item.a);
+  });
+
+  tfQuestions.forEach((item,i) => {
+    const value = document.getElementById("t"+i).value;
+    if (!value) unanswered++;
+    const ok = value === item.a;
+    if (ok) score++;
+    feedback(
+      "ft"+i,
+      ok,
+      "Σωστή απάντηση: " + (item.a === "Σ" ? "Σωστό" : "Λάθος")
+    );
+  });
+
+  const answer = document.getElementById("q14").value;
+  if (!answer) unanswered++;
+  const ok = answer === "print";
+  if (ok) score++;
+  feedback("f14",ok,"Σωστή απάντηση: print()");
+
+  const result = document.getElementById("result");
+  result.style.display = "block";
+
+  document.getElementById("score").textContent = score + " / 14";
+
+  let message = "";
+  if (score === 14) {
+    message = "🎉 Άριστα! Τα κατάφερες σε όλες τις ερωτήσεις!";
+  } else if (score >= 11) {
+    message = "👏 Πολύ καλή προσπάθεια! Συνέχισε έτσι!";
+  } else if (score >= 7) {
+    message = "👍 Καλή προσπάθεια! Μπορείς να τα πας ακόμη καλύτερα!";
+  } else {
+    message = "💪 Μην απογοητεύεσαι! Διάβασε ξανά τη θεωρία και προσπάθησε!";
+  }
+
+  if (unanswered > 0) {
+    message += " Άφησες " + unanswered + " ερωτήσεις χωρίς απάντηση.";
+  }
+
+  document.getElementById("message").textContent = message;
+  result.scrollIntoView({behavior:"smooth",block:"center"});
+}
+
+function resetQuiz() {
+  document.querySelectorAll("select").forEach(el => {
+    el.value = "";
+  });
+
+  document.querySelectorAll(".feedback").forEach(el => {
+    el.textContent = "";
+    el.className = "feedback";
+  });
+
+  document.getElementById("result").style.display = "none";
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+</script>
+
+</body>
+</html>
