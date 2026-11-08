@@ -1,0 +1,172 @@
+
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Βρίσκω τα βήματα! – Αλγόριθμοι</title>
+<style>
+body{font-family:Arial,sans-serif;background:#f2f6fa;color:#263746;line-height:1.6;margin:0;padding:18px}
+main{max-width:850px;margin:auto}
+h1,h2{color:#174f78}
+h1{text-align:center}
+.intro,.exercise{background:white;padding:20px;border-radius:14px;margin:18px 0;box-shadow:0 2px 8px #0001}
+.question{border-bottom:1px solid #ddd;padding:14px 0}
+button{background:#176b9c;color:white;border:0;border-radius:8px;padding:11px 17px;font-size:16px;cursor:pointer;margin:8px 5px 5px 0}
+button:hover{background:#104f75}
+select{width:100%;padding:10px;border:1px solid #bbc8d1;border-radius:7px;font-size:16px;margin:6px 0}
+label{display:block;margin:8px 0}
+.feedback{font-weight:bold;margin-top:10px}
+.good{color:#16803c}.bad{color:#b42318}
+.score{font-weight:bold;color:#174f78}
+</style>
+</head>
+<body>
+<main>
+<h1>Βρίσκω τα βήματα!</h1>
+<div class="intro">
+<p><strong>Μάθημα:</strong> 2.2.1 – Τι είναι αλγόριθμος;</p>
+<p>Ένας αλγόριθμος αποτελείται από συγκεκριμένα βήματα που ακολουθούμε με σωστή σειρά.</p>
+<p>Διάβασε τις ερωτήσεις και επίλεξε τις απαντήσεις σου. Στο τέλος πάτησε «Έλεγχος».</p>
+</div>
+
+<section class="exercise">
+<h2>Άσκηση 1 – Βάζω τα βήματα στη σωστή σειρά</h2>
+<p>Πώς φοράω το μπουφάν μου; Επίλεξε τη σωστή σειρά.</p>
+<div id="order"></div>
+<button onclick="checkOrder()">Έλεγχος απάντησης</button>
+<button onclick="resetOrder()">Επανάληψη</button>
+<p id="orderResult" class="feedback"></p>
+</section>
+
+<section class="exercise">
+<h2>Άσκηση 2 – Είναι αλγόριθμος;</h2>
+<p>Διάλεξε ΝΑΙ ή ΟΧΙ για κάθε περίπτωση.</p>
+<div id="yesno"></div>
+<button onclick="checkYesNo()">Έλεγχος απαντήσεων</button>
+<button onclick="resetYesNo()">Επανάληψη</button>
+<p id="yesnoResult" class="score"></p>
+</section>
+
+<section class="exercise">
+<h2>Άσκηση 3 – Βρίσκω το βήμα που λείπει</h2>
+<p>Θέλω να φορτίσω το κινητό μου. Ποιο βήμα λείπει;</p>
+<p><strong>1.</strong> Παίρνω τον φορτιστή.</p>
+<p><strong>2.</strong> __________</p>
+<p><strong>3.</strong> Συνδέω τον φορτιστή στην πρίζα.</p>
+<p><strong>4.</strong> Περιμένω να φορτίσει το κινητό.</p>
+<div id="missing"></div>
+<button onclick="checkMissing()">Έλεγχος απάντησης</button>
+<p id="missingResult" class="feedback"></p>
+</section>
+</main>
+
+<script>
+const actions=[
+"Παίρνω το μπουφάν.",
+"Βάζω τα χέρια στα μανίκια.",
+"Φοράω το μπουφάν.",
+"Κλείνω το φερμουάρ."
+];
+const correctOrder=[0,1,2,3];
+
+function buildOrder(){
+ const host=document.getElementById("order");
+ host.innerHTML="";
+ actions.forEach((a,i)=>{
+  let label=document.createElement("label");
+  label.textContent="Βήμα "+(i+1);
+  let select=document.createElement("select");
+  select.id="step"+i;
+  select.innerHTML='<option value="">Επίλεξε ενέργεια</option>';
+  actions.forEach((action,j)=>{
+   let option=document.createElement("option");
+   option.value=j;
+   option.textContent=action;
+   select.appendChild(option);
+  });
+  label.appendChild(select);
+  host.appendChild(label);
+ });
+}
+function checkOrder(){
+ let values=actions.map((a,i)=>document.getElementById("step"+i).value);
+ let result=document.getElementById("orderResult");
+ if(values.some(v=>v==="")){
+  result.textContent="Συμπλήρωσε και τα τέσσερα βήματα.";
+  result.className="feedback bad";return;
+ }
+ let ok=values.every((v,i)=>Number(v)===correctOrder[i]);
+ result.textContent=ok?"Μπράβο! Η σειρά είναι σωστή!":"Δεν είναι σωστή η σειρά. Δοκίμασε ξανά!";
+ result.className="feedback "+(ok?"good":"bad");
+}
+function resetOrder(){
+ buildOrder();
+ document.getElementById("orderResult").textContent="";
+}
+
+const questions=[
+ {text:"Οδηγίες για να ετοιμάσω τη σχολική τσάντα.",answer:"Ναι"},
+ {text:"Κάνω τυχαίες κινήσεις χωρίς συγκεκριμένο σκοπό.",answer:"Όχι"},
+ {text:"Ακολουθώ συγκεκριμένα βήματα για να φυτέψω ένα λουλούδι.",answer:"Ναι"},
+ {text:"Κοιτάζω μια φωτογραφία χωρίς να υπάρχουν οδηγίες.",answer:"Όχι"}
+];
+function buildYesNo(){
+ const host=document.getElementById("yesno");
+ host.innerHTML="";
+ questions.forEach((q,i)=>{
+  let div=document.createElement("div");
+  div.className="question";
+  div.innerHTML="<strong>"+(i+1)+". "+q.text+"</strong>";
+  ["Ναι","Όχι"].forEach(v=>{
+   let label=document.createElement("label");
+   label.innerHTML='<input type="radio" name="q'+i+'" value="'+v+'"> '+v;
+   div.appendChild(label);
+  });
+  host.appendChild(div);
+ });
+}
+function checkYesNo(){
+ let score=0;
+ questions.forEach((q,i)=>{
+  let selected=document.querySelector('input[name="q'+i+'"]:checked');
+  if(selected && selected.value===q.answer) score++;
+ });
+ document.getElementById("yesnoResult").textContent="Σωστές απαντήσεις: "+score+"/4";
+}
+function resetYesNo(){
+ buildYesNo();
+ document.getElementById("yesnoResult").textContent="";
+}
+
+const missingOptions=[
+ "Συνδέω το καλώδιο στο κινητό.",
+ "Βάζω το κινητό στην τσάντα.",
+ "Ανοίγω την τηλεόραση."
+];
+function buildMissing(){
+ const host=document.getElementById("missing");
+ host.innerHTML="";
+ missingOptions.forEach((v,i)=>{
+  let label=document.createElement("label");
+  label.innerHTML='<input type="radio" name="missing" value="'+i+'"> '+v;
+  host.appendChild(label);
+ });
+}
+function checkMissing(){
+ let selected=document.querySelector('input[name="missing"]:checked');
+ let result=document.getElementById("missingResult");
+ if(!selected){
+  result.textContent="Επίλεξε πρώτα μία απάντηση.";
+  result.className="feedback bad";return;
+ }
+ let ok=Number(selected.value)===0;
+ result.textContent=ok?"Μπράβο! Βρήκες το σωστό βήμα!":"Δοκίμασε ξανά!";
+ result.className="feedback "+(ok?"good":"bad");
+}
+buildOrder();
+buildYesNo();
+buildMissing();
+</script>
+</body>
+</html>
