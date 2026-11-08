@@ -1,0 +1,199 @@
+<div class="mathima-221" style="max-width:920px;margin:0 auto;font-size:17px;line-height:1.7;color:#20252b">
+<style>
+.mathima-221 h1{color:#174f78;line-height:1.25}
+.mathima-221 h2{color:#174f78;margin-top:30px;border-bottom:2px solid #dce8ef;padding-bottom:7px}
+.mathima-221 h3{color:#23658e}
+.mathima-221 .meta span{display:inline-block;background:#eaf3f8;color:#174f78;border-radius:18px;padding:4px 11px;margin:3px;font-size:14px}
+.mathima-221 .panel{padding:16px 19px;border-radius:12px;margin:16px 0}
+.mathima-221 .blue{background:#eef6fb;border-left:5px solid #2876a8}
+.mathima-221 .green{background:#f1f7f0;border-left:5px solid #4c9654}
+.mathima-221 .yellow{background:#fff8e9;border-left:5px solid #d99a24}
+.mathima-221 .photo{display:block;width:100%;max-width:760px;height:auto;max-height:390px;object-fit:contain;margin:14px auto;border-radius:10px}
+.mathima-221 .photo-card{margin:18px 0 24px}
+.mathima-221 .photo-card img{display:block;width:100%;max-width:720px;height:auto;max-height:360px;object-fit:contain;margin:0 auto;border-radius:10px}
+.mathima-221 .photo-card p{margin:6px 0 0;text-align:center;font-weight:600}
+.mathima-221 .quizbox{border:1px solid #d8e0e7;border-radius:12px;padding:16px;margin:18px 0;background:#fff}
+.mathima-221 .quizbox .q{padding:12px 0;border-bottom:1px solid #e5eaee}
+.mathima-221 .quizbox .q:last-child{border-bottom:0}
+.mathima-221 .quizbox label{display:block;margin:7px 0;cursor:pointer}
+.mathima-221 button{background:#176b9c;color:white;border:0;border-radius:8px;padding:10px 16px;font-size:16px;cursor:pointer;margin:8px 6px 5px 0}
+.mathima-221 button.secondary{background:#667783}
+.mathima-221 .feedback{font-weight:600;margin-top:5px}
+.mathima-221 .good{color:#16803c}.mathima-221 .bad{color:#b42318}
+.mathima-221 .score{font-weight:700;color:#174f78}
+@media(max-width:600px){.mathima-221{font-size:16px}.mathima-221 .panel{padding:13px}}
+</style>
+
+<h1>Μάθημα 2.2.1 – Τι είναι αλγόριθμος;</h1>
+<p class="meta"><span>Β΄ Λυκείου ΕΝ.Ε.Ε.ΓΥ.-Λ.</span><span>45 λεπτά</span><span>1η ώρα ενότητας 2.2</span></p>
+
+<h2>1. Διδακτικοί στόχοι</h2>
+<p>Στο τέλος του μαθήματος οι μαθητές θα μπορούν:</p>
+<ul>
+<li>Να εξηγούν με απλά λόγια τι είναι ένας αλγόριθμος.</li>
+<li>Να αναγνωρίζουν ότι ένας αλγόριθμος αποτελείται από συγκεκριμένα βήματα.</li>
+<li>Να εντοπίζουν απλούς αλγορίθμους στην καθημερινότητά τους.</li>
+<li>Να βάζουν απλές οδηγίες στη σωστή σειρά.</li>
+</ul>
+
+<h2>2. Ξεκινάμε με ένα καθημερινό παράδειγμα</h2>
+<p>Ρωτάμε τους μαθητές:</p>
+<p><strong>Πώς φτιάχνουμε ένα τοστ;</strong></p>
+<div class="photo-card">
+<img src="https://images.openai.com/static-rsc-4/X2Gsym1T0kLjKoM4-TbFfrEt2KaZHViv-YWex3JXClnkTyBSYDnONsO8gKx_TWKs7a6Ap7AI5aCcvBLVSVYjpPmz0yc_Z-Vc841zKwN64MUWua67VJQmdy-o6Oyat1xmQsssCg16y7845aOKHkEeciHJeP2qudjUHlCMU6Wf6es?purpose=inline" alt="Τοστ" loading="lazy">
+<p>Τοστ – το παράδειγμα της εισαγωγής</p>
+</div>
+<p>Γράφουμε στον διαδραστικό πίνακα:</p>
+<ol>
+<li>Παίρνω δύο φέτες ψωμί.</li>
+<li>Βάζω τυρί.</li>
+<li>Βάζω ζαμπόν.</li>
+<li>Κλείνω το τοστ.</li>
+<li>Το ψήνω στην τοστιέρα.</li>
+<li>Το σερβίρω.</li>
+</ol>
+<p>Ρωτάμε:</p>
+<ul>
+<li>Μπορούμε να αλλάξουμε τη σειρά των βημάτων;</li>
+<li>Αν βάλουμε το τοστ στην τοστιέρα πριν το ετοιμάσουμε, θα πετύχουμε το αποτέλεσμα;</li>
+<li>Γιατί πρέπει να ακολουθούμε συγκεκριμένες οδηγίες;</li>
+</ul>
+<p>Καταλήγουμε ότι χρειάζεται να ακολουθούμε μια σειρά ενεργειών.</p>
+
+<h2>3. Θεωρία – Τι είναι αλγόριθμος;</h2>
+<div class="panel green">
+<h3 style="margin-top:0">Αλγόριθμος</h3>
+<p>Αλγόριθμος είναι μια σειρά από συγκεκριμένα βήματα ή οδηγίες που ακολουθούμε για να λύσουμε ένα πρόβλημα ή να πετύχουμε έναν στόχο.</p>
+<p><strong>Με απλά λόγια:</strong></p>
+<p><strong>Αλγόριθμος = Βήματα που ακολουθώ με συγκεκριμένη σειρά.</strong></p>
+</div>
+
+<h3>Πού συναντάμε αλγορίθμους;</h3>
+<div class="photo-card">
+<img src="https://images.openai.com/static-rsc-4/kRTwDt_galbum3bKmK2NcGRdAVYXl3xXDF1ruI-k2dAS2H7Qi5lyQp11fdAnTryH_KdOB8_9PVg-uJTWYVFcKKRL1PXLW_ktym9yG07nqAyZQ69uaYnVCbJMAfShZdP2-CV-dnXmZQQd2lG_S3izCuicvB6eYqHAZmgVbb_Iyb7VTJBt_iuXcKbmfBsE5mo1?purpose=inline" alt="Ακολουθώ μια συνταγή" loading="lazy">
+<p>Στη μαγειρική – Ακολουθώ μια συνταγή.</p>
+</div>
+<div class="photo-card">
+<img src="https://images.openai.com/static-rsc-4/74i487rggcChYPSJaQ7FsvoY0YbT4-beZWM5qfKaRIKLWd2H1JORI1jf5A4ToZrzxDcZ0UIo6LRpHjlIR6eiF2TV_OYq-52iHFjqwpqbVArmptadnyDWKD0MHp3jBg-zVW3rMUVkAT-QNYU-HOBuJX5UVmpUqzPLOUaSIalw93AnHHQoouhn6tvheDV2kL55?purpose=inline" alt="Ανάληψη χρημάτων από ATM" loading="lazy">
+<p>Στην ανάληψη χρημάτων – Ακολουθώ τα βήματα του ATM.</p>
+</div>
+<div class="photo-card">
+<img src="https://images.openai.com/static-rsc-4/mbt4SDIIRUj6uGpymgcvLuTodlCZeW5Tye4cMAnfhxr_TjvADl1p16h3LEKGnlb-ooR8KJMNVXK2PAFkpUsE2yvM3uPLW84BDkcl5nIFxyE635Tgugu0Of6vsryMqOvySV4OCK927n76xRbxJaiNHt2p9UydjPh399EHI2KkB1DSeobqVi9FMKj3gIVyVUu8?purpose=inline" alt="Πλύσιμο χεριών" loading="lazy">
+<p>Στο πλύσιμο χεριών – Ακολουθώ συγκεκριμένες ενέργειες.</p>
+</div>
+<div class="photo-card">
+<img src="https://images.openai.com/static-rsc-4/33NH-_WaHyqMe4bKN1bfbGHTSnWHf9CzhGQAoLRMwMx5mh3jl-6g6o4KDRVfbFzBMUb9HGUrVOQhDzzeUYEhOQYb8SDNhLLCpFin4lSwm5jJbgL9XX2zEcVqH2E4C82w-iadLH_3XJVNPdDGEp-OCc5xRfezCV4WvvPLWV_H3D_3-Ph0Ru1RbLrguYlXodcq?purpose=inline" alt="Πλοήγηση με οδηγίες διαδρομής" loading="lazy">
+<p>Στην πλοήγηση – Ακολουθώ οδηγίες διαδρομής.</p>
+</div>
+
+<h2>4. Παράδειγμα – Πώς λειτουργεί ένας αλγόριθμος;</h2>
+<p><strong>Πρόβλημα:</strong> Θέλω να πλύνω τα χέρια μου.</p>
+<p><strong>Αλγόριθμος:</strong></p>
+<ol>
+<li>Ανοίγω τη βρύση.</li><li>Βρέχω τα χέρια μου.</li><li>Βάζω σαπούνι.</li><li>Τρίβω τα χέρια μου.</li><li>Ξεπλένω με νερό.</li><li>Κλείνω τη βρύση.</li><li>Σκουπίζω τα χέρια μου.</li>
+</ol>
+<div class="photo-card">
+<img src="https://images.openai.com/static-rsc-4/uCj_IoSrrWVuqk44N1Nc64HxQxiIMu7aJg6m4ff3F-2zp2MwPb88wDqTbCikOFlcroSfGU8U8L3nfbWdj_6pB560ZsO3TMlD-pQSCwRko4Qmj-W7mFr7qp6Dv_dO7ZZHLFZsUKoPsh4j6cZAxqP8NPDW0O98zqemTB6bwvTvi1A?purpose=inline" alt="Αφίσα με τα βήματα υγιεινής των χεριών" loading="lazy">
+<p>Τα βήματα του πλυσίματος των χεριών</p>
+</div>
+<p><strong>Ερώτηση:</strong> Τι θα συνέβαινε αν αλλάζαμε εντελώς τη σειρά των βημάτων;</p>
+<p>Συζητάμε ότι η σωστή σειρά βοηθά να πετύχουμε τον στόχο μας.</p>
+
+<h2>5. Διαδραστικές ασκήσεις στην τάξη</h2>
+
+<div class="quizbox" id="exercise1">
+<h3>Άσκηση 1 – Βάζω τα βήματα στη σωστή σειρά</h3>
+<p>Θέλουμε να βουρτσίσουμε τα δόντια μας.</p>
+<p><strong>Επίλεξε τη σωστή σειρά για κάθε θέση.</strong></p>
+<div id="order-controls"></div>
+<button type="button" onclick="checkOrder()">Έλεγχος</button>
+<button type="button" class="secondary" onclick="resetOrder()">Επανάληψη</button>
+<p id="order-result" class="feedback" aria-live="polite"></p>
+</div>
+
+<div class="quizbox" id="exercise2">
+<h3>Άσκηση 2 – Είναι αλγόριθμος;</h3>
+<p>Για κάθε περίπτωση, επίλεξε αν αποτελεί αλγόριθμο.</p>
+<div class="q" data-answer="yes"><strong>1. Οδηγίες για να φτιάξω ένα τοστ.</strong><label><input type="radio" name="e2q1" value="yes"> Ναι</label><label><input type="radio" name="e2q1" value="no"> Όχι</label><p class="feedback"></p></div>
+<div class="q" data-answer="no"><strong>2. Μια τυχαία σειρά κινήσεων χωρίς σκοπό.</strong><label><input type="radio" name="e2q2" value="yes"> Ναι</label><label><input type="radio" name="e2q2" value="no"> Όχι</label><p class="feedback"></p></div>
+<div class="q" data-answer="yes"><strong>3. Βήματα για να κάνω ανάληψη από ATM.</strong><label><input type="radio" name="e2q3" value="yes"> Ναι</label><label><input type="radio" name="e2q3" value="no"> Όχι</label><p class="feedback"></p></div>
+<div class="q" data-answer="no"><strong>4. Μια εικόνα χωρίς οδηγίες.</strong><label><input type="radio" name="e2q4" value="yes"> Ναι</label><label><input type="radio" name="e2q4" value="no"> Όχι</label><p class="feedback"></p></div>
+<button type="button" onclick="checkYesNo()">Έλεγχος</button>
+<button type="button" class="secondary" onclick="resetYesNo()">Επανάληψη</button>
+<p id="yesno-score" class="score" aria-live="polite"></p>
+</div>
+
+<div class="quizbox" id="exercise3">
+<h3>Άσκηση 3 – Συμπληρώνω τη σωστή λέξη</h3>
+<div class="q" data-answer="βήματα"><strong>1. Ο αλγόριθμος αποτελείται από συγκεκριμένα ____.</strong><label><input type="radio" name="e3q1" value="βήματα"> βήματα</label><label><input type="radio" name="e3q1" value="χρώματα"> χρώματα</label><label><input type="radio" name="e3q1" value="παιχνίδια"> παιχνίδια</label><p class="feedback"></p></div>
+<div class="q" data-answer="σειρά"><strong>2. Τα βήματα πρέπει να έχουν σωστή ____.</strong><label><input type="radio" name="e3q2" value="εικόνα"> εικόνα</label><label><input type="radio" name="e3q2" value="σειρά"> σειρά</label><label><input type="radio" name="e3q2" value="μουσική"> μουσική</label><p class="feedback"></p></div>
+<div class="q" data-answer="στόχο"><strong>3. Με έναν αλγόριθμο προσπαθούμε να πετύχουμε έναν ____.</strong><label><input type="radio" name="e3q3" value="στόχο"> στόχο</label><label><input type="radio" name="e3q3" value="θόρυβο"> θόρυβο</label><label><input type="radio" name="e3q3" value="πίνακα"> πίνακα</label><p class="feedback"></p></div>
+<button type="button" onclick="checkWords()">Έλεγχος</button>
+<button type="button" class="secondary" onclick="resetWords()">Επανάληψη</button>
+<p id="words-score" class="score" aria-live="polite"></p>
+</div>
+
+<h2>6. Δραστηριότητα στην τάξη</h2>
+<p>Ζητάμε από τους μαθητές να περιγράψουν τα βήματα για να:</p>
+<ul><li>Φτιάξουν ένα μπολ με δημητριακά.</li><li>Ανοίξουν έναν υπολογιστή.</li><li>Στείλουν ένα μήνυμα από το κινητό.</li></ul>
+<p>Οι μαθητές προτείνουν τα βήματα και ο εκπαιδευτικός τα καταγράφει στον πίνακα με τη σωστή σειρά.</p>
+
+<h2>7. Τι γράφουμε στο τετράδιο</h2>
+<div class="panel blue">
+<p><strong>Τι είναι αλγόριθμος;</strong></p>
+<p>Αλγόριθμος είναι μια σειρά από συγκεκριμένα βήματα ή οδηγίες που ακολουθούμε για να λύσουμε ένα πρόβλημα ή να πετύχουμε έναν στόχο.</p>
+<p><strong>Παραδείγματα αλγορίθμων:</strong></p>
+<ul><li>Μια συνταγή μαγειρικής.</li><li>Το πλύσιμο των χεριών.</li><li>Η ανάληψη χρημάτων από ATM.</li></ul>
+<p><strong>Θυμάμαι:</strong> Τα βήματα ενός αλγορίθμου πρέπει να ακολουθούν συγκεκριμένη σειρά.</p>
+</div>
+
+<script>
+(function(){
+const actions=[
+"Παίρνω την οδοντόβουρτσα.",
+"Βάζω οδοντόκρεμα στην οδοντόβουρτσα.",
+"Βουρτσίζω τα δόντια μου.",
+"Ξεπλένω το στόμα μου."
+];
+const correct=[0,1,2,3];
+const host=document.getElementById('order-controls');
+actions.forEach((_,i)=>{
+ const wrap=document.createElement('p');
+ const label=document.createElement('label');label.textContent='Βήμα '+(i+1)+' ';
+ const select=document.createElement('select');select.id='order'+i;
+ select.innerHTML='<option value="">Επίλεξε ενέργεια</option>'+actions.map((a,j)=>'<option value="'+j+'">'+a+'</option>').join('');
+ select.style.cssText='display:block;width:100%;padding:9px;margin-top:5px;border:1px solid #bbc8d1;border-radius:7px;font-size:16px';
+ label.appendChild(select);wrap.appendChild(label);host.appendChild(wrap);
+});
+window.checkOrder=function(){
+ const vals=actions.map((_,i)=>document.getElementById('order'+i).value);
+ const out=document.getElementById('order-result');
+ if(vals.some(v=>v==='')){out.textContent='Συμπλήρωσε πρώτα και τα τέσσερα βήματα.';out.className='feedback bad';return}
+ const ok=vals.every((v,i)=>Number(v)===correct[i]);
+ out.textContent=ok?'Σωστά! Η σειρά είναι σωστή.':'Δεν είναι σωστή η σειρά. Δοκίμασε ξανά.';
+ out.className='feedback '+(ok?'good':'bad');
+};
+window.resetOrder=function(){actions.forEach((_,i)=>document.getElementById('order'+i).value='');document.getElementById('order-result').textContent='';};
+window.checkYesNo=function(){
+ let score=0;
+ document.querySelectorAll('#exercise2 .q').forEach(q=>{
+  const s=q.querySelector('input:checked'),f=q.querySelector('.feedback');
+  if(s&&s.value===q.dataset.answer){score++;f.textContent='Σωστά!';f.className='feedback good'}
+  else{f.textContent=s?'Όχι σωστά. Δοκίμασε ξανά.':'Δεν έχεις επιλέξει απάντηση.';f.className='feedback bad'}
+ });
+ document.getElementById('yesno-score').textContent='Σωστές απαντήσεις: '+score+'/4';
+};
+window.resetYesNo=function(){document.querySelectorAll('#exercise2 input').forEach(x=>x.checked=false);document.querySelectorAll('#exercise2 .feedback').forEach(x=>{x.textContent='';x.className='feedback'});document.getElementById('yesno-score').textContent='';};
+window.checkWords=function(){
+ let score=0;
+ document.querySelectorAll('#exercise3 .q').forEach(q=>{
+  const s=q.querySelector('input:checked'),f=q.querySelector('.feedback');
+  if(s&&s.value===q.dataset.answer){score++;f.textContent='Σωστά!';f.className='feedback good'}
+  else{f.textContent=s?'Όχι σωστά. Δοκίμασε ξανά.':'Δεν έχεις επιλέξει απάντηση.';f.className='feedback bad'}
+ });
+ document.getElementById('words-score').textContent='Σωστές απαντήσεις: '+score+'/3';
+};
+window.resetWords=function(){document.querySelectorAll('#exercise3 input').forEach(x=>x.checked=false);document.querySelectorAll('#exercise3 .feedback').forEach(x=>{x.textContent='';x.className='feedback'});document.getElementById('words-score').textContent='';};
+})();
+</script>
+</div>
